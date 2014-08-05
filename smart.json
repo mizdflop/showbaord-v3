@@ -1,0 +1,9 @@
+{
+  "packages": {
+    "iron-router": {},
+    "autoform": {},
+    "accounts-entry": {},
+    "glyphicons-halflings": {},
+    "fontawesome4": {}
+  }
+}

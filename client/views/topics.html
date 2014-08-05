@@ -1,0 +1,47 @@
+<template name="topics">
+	<div class="container">
+		<div class="row title-holder" style= "background-image: url(http://res.cloudinary.com/showverse-meteor-com/image/upload/v1397224452/got_oaampu.jpg)">
+			<div class="col-xs-8 desc-text">
+				<h3>Breaking Bad</h3>
+				<h4>Episode 5.09: Blood Money</h4>
+				<h5>75 Members; 125 Discussions</h5>
+			</div>
+		</div>
+		<div class="row nav-topics">
+			<div class="col-xs-6">
+				<ul class="nav nav-tabs" role="tablist">
+				  <li class="topicTabSorter {{ isActive 'Popular Topics'}}"><a href="#">Popular Topics</a></li>
+				  <li class="topicTabSorter {{ isActive 'Scenes'}}"><a href="#">Scenes</a></li>
+				  <li class="topicTabSorter {{ isActive 'Characters'}}"><a href="#">Characters</a></li>
+				</ul>
+			</div>	
+			<div class="col-xs-6">
+				<!-- Single button -->
+				<div class="pull-right">			
+					Filter by: 
+					<div class="btn-group" id="filterButton">
+					  <button type="button" class="btn btn-default btn-rounded dropdown-toggle" data-toggle="dropdown" >
+					    {{visibleOnButton}} <span class="caret"></span>
+					  </button>
+					  <ul class="dropdown-menu" role="menu">
+					    <li><a href="#">Popularity</a></li>
+					    <li><a href="#">Date</a></li>
+
+					  </ul>
+					</div>
+					<button id="addTopic" type="button" class="btn btn-primary btn-rounded">Add Topic</button>
+				</div>
+
+			</div>
+		</div>
+		{{> addTopicModal }}
+
+		<div class="row topics-boxes-holder">
+
+
+
+
+		</div>
+
+	</div>
+</template>

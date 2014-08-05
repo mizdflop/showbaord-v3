@@ -1,0 +1,74 @@
+<template name="addTopicModal">
+<div id="addTopicModal" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">Add Topic</h4>
+      </div>
+      <div class="modal-body">
+      	<form class="form-inline">	
+      		<h5>Topic Source</h5>
+	        <input type="text" id="URLofInterest" class="form-control" placeholder="Input URL">
+	        <button id="checkURL">Fetch Info</button>
+			{{#if urlFetched}}
+				<p>Title: {{fetchedPageTitle}}</p>
+				<p><img src="{{fetchedPageImg}}" width="225"></p>
+				<p>{{fetchedPageDesc}}</p>				
+			{{/if}}		        
+
+	        <h5>Topic Associated With</h5>
+	        <select class="form-control" id="createTopicDropdown">
+	        	<option>Choose One</option>
+
+	        	<option>Character</option>
+	        	<option>Scene</option>
+	        	<option>Analysis</option>
+	        </select>
+	        {{#if sectionToDisplay "Character"}}
+		        <h5>Select a Character</h5>
+		        <ul class="characterList">
+		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
+		        	</li>
+		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
+		        	</li>
+		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
+		        	</li>	        	
+		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
+		        	</li>
+		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
+		        	</li>
+		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
+		        	</li>
+		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
+		        	</li>
+		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
+		        	</li>
+		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
+		        	</li>
+		        </ul>
+		    {{/if}}
+
+
+	        {{#if sectionToDisplay "Scene"}}
+
+			{{/if}}
+
+	        {{#if sectionToDisplay "Analysis"}}
+
+
+			{{/if}}			
+			{{#if anyTopicSet}}
+		        <h5>What's your topic statement?</h5>
+		        <input type="text" class="form-control" placeholder="Text input">
+		    {{/if}}
+	     </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</template>
