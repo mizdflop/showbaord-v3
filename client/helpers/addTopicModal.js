@@ -10,7 +10,7 @@ Template.addTopicModal.helpers({
     return true;
   },
   urlFetched: function(){
-    if( Session.get("URLValues")!==undefined ) {
+    if( Session.get("URLValues")[1] ) {
       return true;
     }
   },

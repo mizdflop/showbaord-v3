@@ -3,63 +3,43 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title" id="myModalLabel">Add Topic</h4>
+        <h4 class="modal-title" id="myModalLabel">Add Conversation Starter</h4>
       </div>
       <div class="modal-body">
       	<form class="form-inline">	
-      		<h5>Topic Source</h5>
-	        <input type="text" id="URLofInterest" class="form-control" placeholder="Input URL">
-	        <button id="checkURL">Fetch Info</button>
-			{{#if urlFetched}}
-				<p>Title: {{fetchedPageTitle}}</p>
-				<p><img src="{{fetchedPageImg}}" width="225"></p>
-				<p>{{fetchedPageDesc}}</p>				
-			{{/if}}		        
-
-	        <h5>Topic Associated With</h5>
+      		<h5>What's the source of the topic</h5>
 	        <select class="form-control" id="createTopicDropdown">
 	        	<option>Choose One</option>
-
-	        	<option>Character</option>
-	        	<option>Scene</option>
-	        	<option>Analysis</option>
+	        	<option>Article/Analysis</option>
+	        	<option>Audio/Posdast</option>
+	        	<option>Original Thought</option>
 	        </select>
-	        {{#if sectionToDisplay "Character"}}
-		        <h5>Select a Character</h5>
-		        <ul class="characterList">
-		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
-		        	</li>
-		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
-		        	</li>
-		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
-		        	</li>	        	
-		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
-		        	</li>
-		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
-		        	</li>
-		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
-		        	</li>
-		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
-		        	</li>
-		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
-		        	</li>
-		        	<li><img src="http://31.media.tumblr.com/avatar_e51a4257cdcf_64.png"><p>Walter White</p>
-		        	</li>
-		        </ul>
-		    {{/if}}
 
+	        {{#if sectionToDisplay "Article/Analysis"}}
+	        	<h5>Input the URL of the Article's Source URL</h5>
+			        <input type="text" id="URLofInterest" class="form-control" placeholder="Input URL">
+			        <button id="checkURL">Fetch Info</button>
+				{{#if urlFetched}}
+					<p>Title: {{fetchedPageTitle}}</p>
+					<p><img src="{{fetchedPageImg}}" width="225"></p>
+					<p>{{fetchedPageDesc}}</p>				
 
-	        {{#if sectionToDisplay "Scene"}}
-
+				{{/if}}		        
 			{{/if}}
 
-	        {{#if sectionToDisplay "Analysis"}}
 
+
+	        {{#if sectionToDisplay "Audio/Podcast"}}
+	        	<h4>Audio/Podcast</h4>
+			{{/if}}
+
+	        {{#if sectionToDisplay "Original Thought"}}
+	        	<h4>Original Thought</h4>
 
 			{{/if}}			
 			{{#if anyTopicSet}}
-		        <h5>What's your topic statement?</h5>
-		        <input type="text" class="form-control" placeholder="Text input">
+		        <h5>Enter an insight to get this conversation rolling!</h5>
+		        <textarea class="form-control" rows="3"></textarea>
 		    {{/if}}
 	     </form>
       </div>
