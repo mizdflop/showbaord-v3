@@ -22,19 +22,14 @@ Template.addTopicModal.helpers({
   },
   fetchedPageDesc: function(){
     return Session.get("URLValues")[2];
+  },
+  audioFileEntered: function(){
+    return Session.get("audioFileEntered");
   }
 
 
 });
 Template.addTopicModal.events({
-  'click .characterList >li': function(e){
-    console.log(e);
-    $('.characterList>li').css('background-color', 'none');
-    $('.characterList>li').removeClass('selected');
-    $(e.currentTarget).css('background-color', 'red');
-    $(e.currentTarget).addClass('selected');
-
-  },
   'change #createTopicDropdown': function(e){
       Session.set("topicForInsert", e.target.value);
   },
@@ -50,5 +45,20 @@ Template.addTopicModal.events({
           }
 
       });
+  },
+  'click #fetchAudioFile': function(e){
+      e.preventDefault();
+      //Meteor.call('fetchAudioURL', $('#audioClipSource').val(), function(error, result){
+      //  if(error){
+      //    alert('totlly no audio');
+      //  } else {
+      Session.set("audioFileEntered", true);
+      //  }
+
+      // d });
   }
 });
+Template.addTopicModal.rendered = function () {
+  // ...
+
+};

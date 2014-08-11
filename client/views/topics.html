@@ -1,37 +1,56 @@
 <template name="topics">
 	<div class="container">
-		<div class="row title-holder" style= "background-image: url(http://res.cloudinary.com/showverse-meteor-com/image/upload/v1397224452/got_oaampu.jpg)">
-			<div class="col-xs-8 desc-text">
+		<div class="row title-holder" style= "background-image: url(http://31.media.tumblr.com/9482fe74a4c23e60975b01a676dbc3da/tumblr_n6rcp05Kgi1qzpxx1o1_1280.jpg)">
+			<div class="col-xs-12 desc-text">
 				<h3>Breaking Bad</h3>
 				<h4>Episode 5.09: Blood Money</h4>
 				<h5>75 Members; 125 Discussions</h5>
 			</div>
-		</div>
-		<div class="row nav-topics">
-			<div class="col-xs-6">
-				<ul class="nav nav-tabs" role="tablist">
-				  <li class="topicTabSorter {{ isActive 'Popular Topics'}}"><a href="#">Popular Topics</a></li>
-				  <li class="topicTabSorter {{ isActive 'Scenes'}}"><a href="#">Scenes</a></li>
-				  <li class="topicTabSorter {{ isActive 'Characters'}}"><a href="#">Characters</a></li>
+			<div class="col-xs-12 line-above">
+				<ul class="text-center">
+					<li>Top 10</li>
+					<li>Most Active</li>
+					<li>
+						<div class="dropdown">
+						  <span class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+						    Dropdown
+						    <span class="caret"></span>
+						  </span>
+						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+						  </ul>
+						</div>
+					</li>
+					<li>By Character <span class="caret"></span></li>
+					<li>My Bookmarks</li>
 				</ul>
-			</div>	
-			<div class="col-xs-6">
-				<!-- Single button -->
-				<div class="pull-right">			
-					Filter by: 
-					<div class="btn-group" id="filterButton">
-					  <button type="button" class="btn btn-default btn-rounded dropdown-toggle" data-toggle="dropdown" >
-					    {{visibleOnButton}} <span class="caret"></span>
-					  </button>
-					  <ul class="dropdown-menu" role="menu">
-					    <li><a href="#">Popularity</a></li>
-					    <li><a href="#">Date</a></li>
+			</div>
+		</div>
+		<div class="row curated-by">
+			<div class="col-xs-12 text-center">
+				Discussion Curated by Jay Greenspan and Shayne Bowman
+				<span class="pull-right">
+					<button id="addTopic" type="button" class="btn btn-primary btn-rounded">Start a Discussion</button>
+				</span>
 
-					  </ul>
-					</div>
-					<button id="addTopic" type="button" class="btn btn-primary btn-rounded">Add Topic</button>
-				</div>
-
+			</div>
+		</div>
+		<div class="row topic-listing">
+			<div class="col-xs-11 col-xs-offset-1">
+				<img src="/snake.png">
+				<h1>1. Hank vs Walt is the final boss battle of the show</h1>
+				<p class="article-by">Andy Greenwald, Grantland</p>
+				<p class="pulled-quote">Where other shows craft elegant story lines and admire them, Breaking Bad smashes straight through the audience anticipation</p>
 			</div>
 		</div>
 		{{> addTopicModal }}

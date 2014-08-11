@@ -18,6 +18,18 @@ Meteor.methods({
 				$("meta[property='og:description']").attr("content")
 			];
 		}
+	},	
+	fetchAudioURL: function(urlString) {
+		//make sure submitted audio url looks like it's in the right format
+		var validAudio = ['mp3', 'mp4', 'ogg', 'wbm', 'wav'];
+		var strArray = urlString.split(".");
+		if( _.indexOf( validAudio, _.last(strArray)) == -1 ){
+			throw new Error;
+	    }
+
+
+
 
 	}
+
 });

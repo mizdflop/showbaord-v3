@@ -11,7 +11,7 @@
 	        <select class="form-control" id="createTopicDropdown">
 	        	<option>Choose One</option>
 	        	<option>Article/Analysis</option>
-	        	<option>Audio/Posdast</option>
+	        	<option>Audio/Podcast</option>
 	        	<option>Original Thought</option>
 	        </select>
 
@@ -26,26 +26,47 @@
 
 				{{/if}}		        
 			{{/if}}
+			{{#if sectionToDisplay "Audio/Podcast"}}
+	        	<h5>Input the Source Audio File (.mp3, .aac, etc)</h5>
+			        <input type="text" id="audioClipSource" class="form-control" placeholder="Input URL">	
+				    <button id="fetchAudioFile">Fetch Audio</button>
 
 
+	        	<h5>Enter the start and end time of the clip you want to play:</h5>
+	        		<div class="col-xs-6">
+				        <input type="text" id="audioStartTime" class="form-control" placeholder="0:00">
 
-	        {{#if sectionToDisplay "Audio/Podcast"}}
-	        	<h4>Audio/Podcast</h4>
-			{{/if}}
+				    </div>
+	        		<div class="col-xs-6">				    
+				        <input type="text" id="audioEndTime" class="form-control" placeholder="0:00">
+				    </div>
+				    {{#if audioFileEntered}}
+				    	<h1>hey!!</h1>
+				    	<audio src="http://media.blubrry.com/blueyonder/p/traffic.libsyn.com/baldmove/oitnb_208.mp3#t=00:00:10,00:00:25" controls>
+							<p>Your browser does not support the audio element </p>
+						</audio>
+				    {{/if}}
+
+	        {{/if}}
 
 	        {{#if sectionToDisplay "Original Thought"}}
 	        	<h4>Original Thought</h4>
-
+	        	<h5>Enter a Short Title for Your Thought</h5>
+			        <input type="text" id="audioClipSource" class="form-control" placeholder="Post Title">	        	
 			{{/if}}			
 			{{#if anyTopicSet}}
 		        <h5>Enter an insight to get this conversation rolling!</h5>
 		        <textarea class="form-control" rows="3"></textarea>
+		        <p><input id="spoiler" type="checkbox"> 
+		        Include Spoiler warning? </p>
+		        <p></p>
+		        <button type="button" class="btn btn-primary">Add Conversation</button>
+
 		    {{/if}}
 	     </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
