@@ -1,41 +1,53 @@
 <template name="topics">
-	<div class="container">
+	<div class="my-fluid-container">
 		<div class="row title-holder" style= "background-image: url(http://31.media.tumblr.com/9482fe74a4c23e60975b01a676dbc3da/tumblr_n6rcp05Kgi1qzpxx1o1_1280.jpg)">
 			<div class="col-xs-12 desc-text">
-				<h3>Breaking Bad</h3>
-				<h4>Episode 5.09: Blood Money</h4>
-				<h5>75 Members; 125 Discussions</h5>
+				{{#with thisSeries}}
+					<h3>{{seriesTitle}}</h3>
+				{{/with}}
+				{{#with thisEpisode}}
+					<h4>Episode {{seasonNumber}}.{{episodeNumber}}: {{title}}</h4>
+
+					<h5>75 Members; 125 Discussions</h5>
+				{{/with}}
+
 			</div>
 			<div class="col-xs-12 line-above">
 				<ul class="text-center">
-					<li>Top 10</li>
-					<li>Most Active</li>
+					<li>TOP 10</li>
+					<li>MOST ACTIVE</li>
 					<li>
 						<div class="dropdown">
 						  <span class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
-						    Dropdown
+						    BY SCENE
 						    <span class="caret"></span>
 						  </span>
 						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-						    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
+						  	{{#each scenesArray}}
+							    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{sceneNumber}}. {{sceneDesc}}</a></li>
+							 {{/each}}
 						  </ul>
 						</div>
 					</li>
-					<li>By Character <span class="caret"></span></li>
-					<li>My Bookmarks</li>
+					<li>
+						<div class="dropdown">
+						  <span class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+						    BY CHARACTER
+						    <span class="caret"></span>
+						  </span>
+						  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+						  	{{#each charactersArray}}
+							    <li role="presentation"><a role="menuitem" tabindex="-1" href="#">{{characterName}}</a></li>
+							 {{/each}}
+						  </ul>
+						</div>
+					</li>
+					<li>MY BOOKMARKS</li>
 				</ul>
 			</div>
 		</div>
+	</div>
+	<div class="container">
 		<div class="row curated-by">
 			<div class="col-xs-12 text-center">
 				Discussion Curated by Jay Greenspan and Shayne Bowman
@@ -46,11 +58,14 @@
 			</div>
 		</div>
 		<div class="row topic-listing">
-			<div class="col-xs-11 col-xs-offset-1">
+			<div class="col-xs-12">
 				<img src="/snake.png">
 				<h1>1. Hank vs Walt is the final boss battle of the show</h1>
 				<p class="article-by">Andy Greenwald, Grantland</p>
 				<p class="pulled-quote">Where other shows craft elegant story lines and admire them, Breaking Bad smashes straight through the audience anticipation</p>
+				<div class="in-circle"><i class="fa fa-comment"></i></div>
+				<p class="observations">55 observations</p>
+				<p class="last-comment">20 minutes ago</p>
 			</div>
 		</div>
 		{{> addTopicModal }}

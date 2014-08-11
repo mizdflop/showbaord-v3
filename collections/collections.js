@@ -92,7 +92,7 @@ Episodes = new Meteor.Collection("episodes", {
 	}
 });
 
-Notesforshow = new Meteor.Collection("notesforshow", {
+Topics = new Meteor.Collection("notesforshow", {
 	schema: {
 		episodeId: {
 			type: String
@@ -102,23 +102,34 @@ Notesforshow = new Meteor.Collection("notesforshow", {
 			type: String
 			//fk to users
 		},
-		assocaitedSceneNumber: {
-			type: Number,
+		tags:{
+			type: [String],
 			optional: true
-		},
-		associatedCharacterName: {
-			type: String,
-			optional: true
-		},
+		}
 		timestamp: {
 			type: String
 		},
 		noteType: {
 			type: String,
 			optional: true
+			//audio, link, original thought
 		},
+		linkedArticleInfo{
+			type: Object,
+			optional: true
+		},
+		"linkedArticleInfo.$.URL"{
+			type: String
+		},
+		"linkedArticleInfo.$.title"{
+			type: String
+		},
+		"linkedArticleInfo.$.image"{
+			type: String
+		}		
 		noteURL: {
 			type: String
+			optional: true;
 		},
 		noteTitle: {
 			type: String

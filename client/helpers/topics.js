@@ -1,4 +1,17 @@
 Template.topics.helpers({
+  thisSeries: function(){
+    return Tvseries.findOne();
+  },
+  thisEpisode: function(){
+    return Episodes.findOne();
+  },
+  scenesArray: function(){
+    return Episodes.findOne().scenes;
+  },
+  charactersArray: function(){
+    return Episodes.findOne().characters;
+  },
+
   isActive: function(item) {
     if(Session.equals("visibleTopics", item)){
       return "active";

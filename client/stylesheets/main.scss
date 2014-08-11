@@ -10,6 +10,7 @@
 
 */
 
+
 /*========================================
 =          Twitter Bootstrap 3.1.0      =
 ========================================*/
@@ -70,16 +71,27 @@ body {
 	padding-top: 0px;
 }
 
-.header_space{
-	background-color: #212121;
+
+.header-space{
+	background-color: #0b0706;
 	padding-top: 10px;
 	padding-bottom: 0px;
+	padding-left:12px;
+	padding-right: 12px;
 	margin-bottom: 0px;
 }
+.my-fluid-container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 .title-holder{
 	position: relative;
 	min-height: 300px;
+	padding: 0 0 0 0;
 	.desc-text{
 		margin-top: 100px;
 		padding-left:75px;
@@ -105,7 +117,6 @@ body {
 			text-align: center;
 			margin-left: 25px;
 			margin-right: 25px;
-
 			display: inline;
 			&:hover{
 				color: #ffffff;
@@ -114,21 +125,24 @@ body {
 			}
 			.dropdown{
 				display: inline;
+
 			}
 			.dropdown-menu{
-				   height: auto;
-				    max-height: 200px;
-    				overflow-x: hidden;
+			   height: auto;
+			    max-height: 200px;
+				overflow-x: hidden;
+				padding-left:0px;
+				padding-right:0px;
 				li {
+					margin-top:0px;
+					border-top:0px;
 					text-align: left;
-					margin-bottom: 122px;
-					border-bottom: 110px solid rgba(0,0,0,.15);
+					a{
+						padding: 3px 10px 11px 20px;
+					}
 				}
-
 			}
 		}
-
-
 	}
 }
 .curated-by{
@@ -136,6 +150,7 @@ body {
 	margin-bottom: 12px;
 }
 .topic-listing{
+	margin-left: 45px;
 	img{
 		float: left;
 		margin-right: 12px;
@@ -144,8 +159,22 @@ body {
 		padding-top: 0px;
 		margin-top: 0px;
 		font-size: 18px;
-
-		
+	}
+	.in-circle{
+		border-radius: 30%;
+		background-color: #ebebeb;
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		padding: 5px;
+		float: left;
+		margin-right: 14px;
+	}
+	.observations{
+		text-size: 8px;
+	}
+	.last-comment{
+		text-size: 5px;
 	}
 
 }

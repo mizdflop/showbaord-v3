@@ -1,16 +1,17 @@
 <template name="layout">
-	<div class="container">
-		<div class="row w">
-			<div class="xs-col-12">
-		        <a class="navbar-brand" href="#">ShowVerse</a>
-		        <div class="collapse navbar-collapse">
-		          <ul class="nav navbar-nav navbar-right">
-		            {{ > accountButtons }}
-		          </ul>
-		        </div><!--/.nav-collapse -->
-			</div>			    
-		</div>
-	</div>
- 	{{> yield}}
+<header>
+    <div class="navbar header-space">
+      <div class="navbar-brand">
+        <a href="/">
+        		My Brand
+        </a>
+      </div>
+      <ul class="nav navbar-nav navbar-right">          
 
+      		{{ > accountButtons}}
+      </ul>
+  
+  	</div>
+</header>
+	{{> yield}}
 </template>
