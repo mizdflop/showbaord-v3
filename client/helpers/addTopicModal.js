@@ -1,37 +1,48 @@
+function insertTopic(topicType, URL, conversationStarter, spoiler){
+  Topics.insert({
+    episodeId: Episodes.findOne()._id,
+    createdBy: Meteor.userId(),
+    timestamp: Date.now(),
+    noteType: topicType,
+    linkedArticleInfo: {
+      URL: URL,
+      title: Session.get("URLValues").title,
+      image: Session.get("URLValues").image,
+      description: Session.get("URLValues").description
+    },
+    conversatoinStarter: conversationStarter,
+    spoilerWarning: spoiler
+  });
+}
+
 Template.addTopicModal.helpers({
   sectionToDisplay: function (str) {
-    console.log(str);
-    if(Session.equals("topicForInsert", str)){ return true;}
-  },
-  anyTopicSet: function(){
-    if(Session.equals("topicForInsert", undefined)){
+    //console.log(str);
+    if(Session.equals("sectionToDisplay", str)){ 
+      Session.set("showConversationStarter", true);
+      return true;
+    } else {
+      Session.set("showConversationStarter", false);
       return false;
     }
-    return true;
   },
-  urlFetched: function(){
-    if( Session.get("URLValues")[1] ) {
-      return true;
-    }
+  showConversationStarter: function(){
+    return Session.get("showConversationStarter");
   },
-  fetchedPageTitle: function(){
-    return Session.get("URLValues")[0];
+  URLFetched: function(){
+    return Session.get("URLFetched");
   },
-  fetchedPageImg: function(){
-    return Session.get("URLValues")[1];
-  },
-  fetchedPageDesc: function(){
-    return Session.get("URLValues")[2];
-  },
-  audioFileEntered: function(){
-    return Session.get("audioFileEntered");
+  fetchedPageValues: function(){
+    return Session.get("URLValues");
   }
-
-
 });
+
+
+
+
 Template.addTopicModal.events({
   'change #createTopicDropdown': function(e){
-      Session.set("topicForInsert", e.target.value);
+      Session.set("sectionToDisplay", e.target.value);
   },
   'click #checkURL': function(e){
       e.preventDefault();
@@ -41,6 +52,7 @@ Template.addTopicModal.events({
           if(error){ 
             alert("couldn't find it");
           } else {
+            Session.set("URLFetched", true);
             Session.set("URLValues", result);
           }
 
@@ -56,9 +68,33 @@ Template.addTopicModal.events({
       //  }
 
       // d });
+  },
+  'submit form': function(event){
+      event.preventDefault();
+      event.stopPropagation();
+      insertTopic( $('#createTopicDropdown').val(), $('#URLofInterest').val(), $('#conversationStarter').val(), $('#spoiler').is(":checked"))
+      Router.go("/");
+      return false; 
   }
 });
+
+
+
+
+
+
+
+
+
+
 Template.addTopicModal.rendered = function () {
-  // ...
+  $('#addTopicModal').on('show.bs.modal', function (e) {
+      console.log('here');
+      Session.set("URLValues", {});
+      Session.set("sectionToDisplay", undefined);
+      Session.set("URLFetched", false);
+      $('#conversationItemForm').trigger('reset');
+  });
+   
 
 };

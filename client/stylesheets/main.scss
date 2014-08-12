@@ -205,8 +205,11 @@ body {
 	h5{
 		clear: both;
 	}
-	textarea, input {
+	textarea, {
 		width:100%;
+	}
+	input[type=text]{
+		width: 100%
 	}
 }
 

@@ -105,7 +105,7 @@ Topics = new Meteor.Collection("notesforshow", {
 		tags:{
 			type: [String],
 			optional: true
-		}
+		},
 		timestamp: {
 			type: String
 		},
@@ -114,35 +114,29 @@ Topics = new Meteor.Collection("notesforshow", {
 			optional: true
 			//audio, link, original thought
 		},
-		linkedArticleInfo{
+		linkedArticleInfo: {
 			type: Object,
 			optional: true
 		},
-		"linkedArticleInfo.$.URL"{
+		"linkedArticleInfo.URL": {
 			type: String
 		},
-		"linkedArticleInfo.$.title"{
+		"linkedArticleInfo.title": {
 			type: String
 		},
-		"linkedArticleInfo.$.image"{
-			type: String
-		}		
-		noteURL: {
-			type: String
-			optional: true;
-		},
-		noteTitle: {
+		"linkedArticleInfo.image": {
 			type: String
 		},
-		noteDescription: {
+		"linkedArticleInfo.description": {
 			type: String
-		},
-		noteImg: {
+		},				
+		conversatoinStarter: {
 			type: String
-		},
+		},		
 		attachedToUserIds: {
 			type: [String],
 			optional: true
+			//users following it, I guess
 		},
 		comments: {
 			type: [Object],
@@ -156,6 +150,9 @@ Topics = new Meteor.Collection("notesforshow", {
         },
         "comments.$.timestamp": {
           type: String
+        },
+        spoilerWarning: {
+        	type: Boolean
         }
 	}
 });

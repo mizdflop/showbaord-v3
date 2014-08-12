@@ -12,11 +12,11 @@ Meteor.methods({
         var Cheerio = Meteor.require('cheerio');          
 		$ = Cheerio.load(result.content);
 		if( $("meta[property='og:title']").attr("content") ){
-			return [
-				$("meta[property='og:title']").attr("content"),
-				$("meta[property='og:image']").attr("content"),
-				$("meta[property='og:description']").attr("content")
-			];
+			return {
+				"title": $("meta[property='og:title']").attr("content"),
+				"image": $("meta[property='og:image']").attr("content"),
+				"description": $("meta[property='og:description']").attr("content")
+			};
 		}
 	},	
 	fetchAudioURL: function(urlString) {

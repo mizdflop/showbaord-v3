@@ -5067,5 +5067,7 @@ body {
       text-align: center; }
 #addTopicModal h5 {
   clear: both; }
-#addTopicModal textarea, #addTopicModal input {
+#addTopicModal textarea {
+  width: 100%; }
+#addTopicModal input[type=text] {
   width: 100%; }
