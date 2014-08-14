@@ -41,20 +41,23 @@
 	        	<h5>Enter a Short Title for Your Thought</h5>
 			        <input type="text" id="audioClipSource" class="form-control" placeholder="Post Title">	        	
 			{{/if}}			
-			{{#if showConversationStarter}}
+			<div class="{{#unless showConversationStarter}}hideMe{{/unless}}">
 		        <h5>Enter an insight to get this conversation rolling!</h5>
 		        <textarea id="conversationStarter" Uclass="form-control" rows="3"></textarea>
-		        
-			    <input id="spoiler" type="checkbox"> &nbsp;Include Spoiler warning? 
-
-		        <p><button type="submit" class="btn btn-primary">Add Conversation</button></p>
-
-		    {{/if}}
-		    <input class="form-control typeahead" id="foobar" name="showTags" type="text"
+		        <input class="form-control typeahead" id="foobar" name="showTags" type="text"
 			       placeholder="Start typing"
 			       autocomplete="on" spellcheck="off"
 			       data-source="allTags"/>
 
+			    {{#each tags}}
+			    	<span class="myTag">{{tag}}<i class="fa fa-times"></i></span>&nbsp;
+			    {{/each}}
+
+			    <p><input id="spoiler" type="checkbox"> &nbsp;Include Spoiler warning?</p> 
+
+		        <p><button type="submit" class="btn btn-primary">Add Conversation</button></p>
+
+		    </div>
 	     </form>
       </div>
       <div class="modal-footer">

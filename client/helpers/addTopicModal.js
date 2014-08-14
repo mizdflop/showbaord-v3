@@ -4,6 +4,14 @@ Meteor.startup(function(){
     console.log('i ate here');
 });
 
+function initalizeTypeAhead(){
+  console.log("do I run");
+  Meteor.typeahead('.typeahead', _.union(
+      _.pluck(Episodes.findOne().scenes,"sceneDesc"),
+      _.pluck(Episodes.findOne().characters, "characterName")
+  ));
+
+}
 function insertTopic(topicType, URL, conversationStarter, spoiler){
     console.log(conversationStarter);
     if(topicType ==="Article/Analysis"){
@@ -66,6 +74,12 @@ Template.addTopicModal.helpers({
   },
   soundCloudEmbed: function(){
     return Session.get("soundCloudEmbedCode");
+  },
+  tags: function(){
+    return Session.get("tagsArray");
+  },
+  tag: function(){
+    return this.toString();
   }
 
 });
@@ -79,7 +93,7 @@ Template.addTopicModal.allTags = function(){
 Template.addTopicModal.events({
   'change #createTopicDropdown': function(e){
       Session.set("sectionToDisplay", e.target.value);
-          Meteor.typeahead('.typeahead', ["foobar", "barfoo"]);
+      initalizeTypeAhead();
 
   },
   'click #checkURL': function(e){
@@ -88,7 +102,7 @@ Template.addTopicModal.events({
       Meteor.call('fetchRemoteData', $('#URLofInterest').val(), function (error, result) {
           //console.log(error);
           if(error){ 
-            alert("couldn't find it");
+            //alert("couldn't find it");
           } else {
             Session.set("URLFetched", true);
             Session.set("URLValues", result);
@@ -101,6 +115,20 @@ Template.addTopicModal.events({
       event.stopPropagation();
       Session.set("soundCloudEmbedCode", $('#audioClipSource').val() );
   },
+  'keyup .typeahead, click .tt-dropdown-menu': function(e){
+      if(e.keyCode===9 || e.keyCode===13 || e.type==="click"){
+        e.preventDefault();
+        e.stopPropagation();
+        //console.log( $('typeahead').value());
+        var tempArray = Session.get("tagsArray");
+        tempArray.push( $('.typeahead').val() );
+        Session.set("tagsArray", tempArray);
+        initalizeTypeAhead(); 
+        $('.typeahead').val('');
+      }
+
+
+  },
   'submit form': function(event){
       event.preventDefault();
       event.stopPropagation();
@@ -109,8 +137,10 @@ Template.addTopicModal.events({
       //Router.go("/");
       return false; 
   },
-  'click .typeahead': function(){
-    console.log('foo');
+  'click .myTag': function(e){
+    console.log(e); 
+    Session.set("tagsArray", _.without(Session.get("tagsArray"), e.currentTarget.innerText));
+
   }
 });
 
@@ -129,6 +159,7 @@ Template.addTopicModal.rendered = function () {
       Session.set("sectionToDisplay", undefined);
       Session.set("URLFetched", false);
       Session.set("soundCloudEmbedCode", "");
+      Session.set("tagsArray", []);
       $('#conversationItemForm').trigger('reset');
 
 

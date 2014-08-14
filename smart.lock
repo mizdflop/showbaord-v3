@@ -8,7 +8,6 @@
       "glyphicons-halflings": {},
       "fontawesome4": {},
       "font-awesome": {},
-      "typeahead": {},
       "autoform-extension": {}
     },
     "packages": {
@@ -42,11 +41,6 @@
         "tag": "v4.1.0",
         "commit": "ce6b1e92715d1938babc5d69c655c17e387f5926"
       },
-      "typeahead": {
-        "git": "https://github.com/sergeyt/meteor-typeahead.git",
-        "tag": "v0.0.11",
-        "commit": "b97b4a92edeceb8f76aa8e6eb0f71252b34d4de3"
-      },
       "autoform-extension": {
         "git": "https://github.com/miguelalarcos/autoform-extension.git",
         "tag": "v0.1.5",
@@ -69,8 +63,8 @@
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
-        "tag": "v2.6.0",
-        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+        "tag": "v2.8.1",
+        "commit": "722ea63783d594341023836b7d418ab2567dab8c"
       },
       "accounts-t9n": {
         "git": "https://github.com/softwarerero/meteor-accounts-t9n.git",
@@ -81,6 +75,11 @@
         "git": "https://github.com/Differential/simple-form.git",
         "tag": "v0.1.8",
         "commit": "1ea0d3621b333e6f24f37e0e93efd3c081068716"
+      },
+      "typeahead": {
+        "git": "https://github.com/sergeyt/meteor-typeahead.git",
+        "tag": "v0.0.11",
+        "commit": "b97b4a92edeceb8f76aa8e6eb0f71252b34d4de3"
       },
       "bootstrap3-datetimepicker": {
         "git": "https://github.com/tsega/meteor-bootstrap3-datetimepicker.git",
