@@ -5076,7 +5076,14 @@ body {
   width: 100%; }
 
 .mytag {
-  color: blue; }
+  background-color: #f4efb5;
+  border-radius: 15px;
+  color: black;
+  font-size: 12px;
+  padding: 6px;
+  border: 1px black; }
+  .mytag .fa {
+    margin-left: 5px; }
 
 .tt-query, .tt-hint {
   width: 396px;

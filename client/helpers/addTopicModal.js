@@ -6,10 +6,12 @@ Meteor.startup(function(){
 
 function initalizeTypeAhead(){
   console.log("do I run");
-  Meteor.typeahead('.typeahead', _.union(
-      _.pluck(Episodes.findOne().scenes,"sceneDesc"),
-      _.pluck(Episodes.findOne().characters, "characterName")
-  ));
+  Meteor.typeahead('.typeahead', 
+    _.union(
+      _.map(Episodes.findOne().scenes, function(key, val){ return "scene " + key.sceneNumber + ": " + key.sceneDesc}),
+      _.map(Episodes.findOne().characters, function(key, val){ return "character: " + key.characterName})
+    )
+  );
 
 }
 function insertTopic(topicType, URL, conversationStarter, spoiler){
@@ -137,8 +139,7 @@ Template.addTopicModal.events({
       //Router.go("/");
       return false; 
   },
-  'click .myTag': function(e){
-    console.log(e); 
+  'click .mytag': function(e){
     Session.set("tagsArray", _.without(Session.get("tagsArray"), e.currentTarget.innerText));
 
   }
