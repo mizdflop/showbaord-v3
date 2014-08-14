@@ -129,11 +129,15 @@ Topics = new Meteor.Collection("notesforshow", {
 		},
 		"linkedArticleInfo.description": {
 			type: String
+		},
+		soundCloudEmbedCode:{
+			type: String,
+			optional: true
 		},				
-		conversatoinStarter: {
+		conversationStarter: {
 			type: String
 		},		
-		attachedToUserIds: {
+		followers: {
 			type: [String],
 			optional: true
 			//users following it, I guess

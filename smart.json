@@ -5,6 +5,8 @@
     "accounts-entry": {},
     "glyphicons-halflings": {},
     "fontawesome4": {},
-    "font-awesome": {}
+    "font-awesome": {},
+    "typeahead": {},
+    "autoform-extension": {}
   }
 }
