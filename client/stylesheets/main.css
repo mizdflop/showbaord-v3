@@ -4962,10 +4962,22 @@ body {
 .header-space {
   background-color: #0b0706;
   padding-top: 10px;
-  padding-bottom: 0px;
+  padding-bottom: 4px;
   padding-left: 12px;
-  padding-right: 12px;
+  padding-right: 18px;
   margin-bottom: 0px; }
+  .header-space .navbar-brand a {
+    font-family: helvetica;
+    font-size: 21px;
+    color: #fff; }
+  .header-space .navbar-brand .tagLine {
+    font-size: 14px;
+    font-style: oblique;
+    font-variant: italic;
+    color: #999999; }
+  .header-space .navbar-right li a {
+    font-family: helvetica;
+    color: #999999; }
 
 .my-fluid-container {
   padding-left: 15px;
@@ -4981,9 +4993,22 @@ body {
     margin-top: 100px;
     padding-left: 75px;
     padding-right: 75px; }
-    .title-holder .desc-text h5 {
-      color: white;
-      font-family: helvetica; }
+  .title-holder h3 {
+    font-family: helvetica;
+    color: #999999;
+    font-style: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 3px; }
+  .title-holder h4 {
+    font-size: 36px;
+    font-family: helvetica;
+    font-style: bold;
+    color: #ffffff; }
+  .title-holder h5 {
+    font-family: helvetica;
+    font-size: 18px;
+    color: #ffffcc; }
   .title-holder .line-above {
     position: absolute;
     bottom: 15px;
@@ -5054,6 +5079,10 @@ body {
 
 .hideMe {
   display: none; }
+
+.breadcrumbs {
+  height: 30px;
+  background-color: #ebebeb; }
 
 #addTopicModal ul {
   list-style-type: none;

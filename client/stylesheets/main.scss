@@ -65,6 +65,8 @@ $b3-enabled: true;
 
 // @import "app/app";
 
+
+
 $primary_color: #ffffff;
 $primary_size: 114px;
 body {
@@ -75,10 +77,30 @@ body {
 .header-space{
 	background-color: #0b0706;
 	padding-top: 10px;
-	padding-bottom: 0px;
+	padding-bottom: 4px;
 	padding-left:12px;
-	padding-right: 12px;
+	padding-right: 18px;
 	margin-bottom: 0px;
+	.navbar-brand{
+		a{
+			font-family: helvetica;
+			font-size: 21px;
+			color: #fff;
+		}
+		.tagLine{
+			font-size: 14px;
+			font-style: oblique;
+			font-variant: italic;
+			color: #999999;
+		}
+	}
+	.navbar-right{
+		li a{
+			font-family: helvetica;
+			color: #999999;
+
+		}
+	}
 }
 .my-fluid-container {
   padding-left: 15px;
@@ -96,10 +118,26 @@ body {
 		margin-top: 100px;
 		padding-left:75px;
 		padding-right: 75px;
-		h5 {
-			color: white;
-			font-family: helvetica;
-		}
+	}
+	h3{
+		font-family: helvetica;
+		color: #999999;
+		font-style: bold;
+		font-size: 14px;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+	}
+	h4 {
+		font-size: 36px;	
+		font-family: helvetica;
+		font-style: bold;
+		color: #ffffff;
+
+	}
+	h5 {
+		font-family: helvetica;
+		font-size: 18px;
+		color: #ffffcc;
 	}
 	.line-above{
 		position: absolute;
@@ -184,6 +222,19 @@ body {
 .hideMe{
 	display: none;
 }
+//showtopic template
+
+.breadcrumbs{
+	height: 30px;
+	background-color: #ebebeb;
+
+}
+.topicMeta{
+
+}
+
+
+
 
 //for addTopicModal
 #addTopicModal {

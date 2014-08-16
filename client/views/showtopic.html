@@ -1,0 +1,29 @@
+<template name="showtopic">
+
+
+<div class="row breadcrumbs">
+	<div class="col-xs-12">
+		<span class="episodeTitle">{{series.seriesTitle}}</span> <span class="episodeInfo">{{episode.seasonNumber}}.{{episode.episodeNumber}} - {{episode.title}} {{currentFilter}}</span>
+	</div>
+</div>
+
+<div class="row topicMeta">
+	<div class="col-xs-8 col-xs-offset-2">
+		<h1>{{topic.topicTitle}}</h1>
+
+		<h4>Discussion started by {{topic.createdByUsername}} on {{formatDate topic.timestamp}}</h4>
+		<img src="{{topic.linkedArticleInfo.image}}">
+		<h5>{{articleAuthor}}</h5>
+		<h5>From {{articleTitle}} on {{site}}</h5>
+		<p>{{topic.conversationStarter}}</p>
+		<div class="tags">
+			{{#each topic.tags}}
+				<span class="tag">{{this}}</span>
+			{{/each}}
+		</div>		
+
+	</div>
+
+</div> 
+
+</template>

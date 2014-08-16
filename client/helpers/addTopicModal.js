@@ -1,42 +1,26 @@
-function insertTopic(topicType, URL, conversationStarter, spoiler){
-    console.log(spoiler);
-    if(topicType ==="Article/Analysis"){
-      Topics.insert({
+function insertTopic(topicType, URL, conversationStarter, spoiler, topicTitle){
+    var insertObject = {
         episodeId: Episodes.findOne()._id,
-        createdBy: Meteor.userId(),
+        createdById: Meteor.userId(),
+        createdByUsername: Meteor.user().username,
         timestamp: Date.now(),
         noteType: topicType,
-        linkedArticleInfo: {
+        conversationStarter: conversationStarter,
+        spoilerWarning: spoiler,
+        tags: Session.get("tagsArray")
+    };
+    if(topicType ==="Article/Analysis"){
+        insertObject.linkedArticleInfo = {
           URL: URL,
           title: Session.get("URLValues").title,
           image: Session.get("URLValues").image,
           description: Session.get("URLValues").description
-        },
-        conversationStarter: conversationStarter,
-        spoilerWarning: spoiler,
-        tags: Session.get("tagsArray")
-      });
+        }
     } else if(topicType === "Audio/Podcast") {
-      Topics.insert({
-        episodeId: Episodes.findOne()._id,
-        createdBy: Meteor.userId(),
-        timestamp: Date.now(),
-        noteType: topicType,
-        soundCloudEmbedCode: Session.get("soundCloudEmbedCode"),
-        spoilerWarning: spoiler,
-        tags: Session.get("tagsArray")
-      });      
-    } else if(topicType ==="Original Thought") {
-      Topics.insert({
-        episodeId: Episodes.findOne()._id,
-        createdBy: Meteor.userId(),
-        timestamp: Date.now(),
-        noteType: topicType,
-        spoilerWarning: spoiler,
-        tags: Session.get("tagsArray")      
-    });      
-
-    }
+        insertObject.soundCloudEmbedCode = Session.get("soundCloudEmbedCode");
+    } 
+    //if it's an original thought, we don't need anyting more
+    Topics.insert( insertObject );
 }
 
 Template.addTopicModal.helpers({
@@ -68,6 +52,9 @@ Template.addTopicModal.helpers({
   tag: function(){
     return this.toString();
   },
+  fetching: function(){
+    return Session.get("fetching");
+  }
 
 });
 
@@ -89,17 +76,18 @@ Template.addTopicModal.events({
   },
   'click #checkURL': function(e){
       e.preventDefault();
-      console.log( $('#URLofInterest').val() );
-      Meteor.call('fetchRemoteData', $('#URLofInterest').val(), function (error, result) {
-          //console.log(error);
-          if(error){ 
-            //alert("couldn't find it");
-          } else {
-            Session.set("URLFetched", true);
-            Session.set("URLValues", result);
-          }
-
-      });
+      if( $('#URLofInterest').is(":focus") || $('#checkURL').is(":focus") ){
+        Session.set("fetching", true);
+        Meteor.call('fetchRemoteData', $('#URLofInterest').val(), function (error, result) {
+            if(error){ 
+              alert("couldn't find it");
+            } else if(result) {
+              Session.set("URLFetched", true);
+              Session.set("URLValues", result);
+            }
+            Session.set("fetching", false);
+        });
+      }
   },
   'click #fetchAudioFile': function(event){
       event.preventDefault();
@@ -110,10 +98,19 @@ Template.addTopicModal.events({
       if( e.keyCode===9 || e.keyCode===13 || e.type==="click"){
         e.preventDefault();
         e.stopPropagation();
+        if( $('.typeahead').val()==="" ) { return false; }
         var tempArray = Session.get("tagsArray");
-        tempArray.push( _.rest( $('.typeahead').val().split(' '),1 ).join(" ") );
+        //if what was entered was a character or a scene, parse it
+        if( $('.typeahead').val().split(' ')[0] === "character:") {
+              tempArray.push( _.rest( $('.typeahead').val().split(' '),1 ).join(" ") );
+        } else if ( $('.typeahead').val().split(' ')[0] === "scene" ){
+          tempArray.push( _.rest( $('.typeahead').val().split(' '),2 ).join(" ") );
+        } else {
+          tempArray.push( $('.typeahead').val() );
+        }
         Session.set("tagsArray", tempArray);
-        $('.typeahead').val('');
+        $('.typeahead').typeahead('val', '');
+
       }
 
 
@@ -122,7 +119,10 @@ Template.addTopicModal.events({
       event.preventDefault();
       event.stopPropagation();
       //rewrite with callback
-      insertTopic( $('#createTopicDropdown').val(), $('#URLofInterest').val(), $('#conversationStarter').val(), $('#spoiler').is(":checked"))
+      insertTopic( $('#createTopicDropdown').val(), $('#URLofInterest').val(), 
+                      $('#conversationStarter').val(), $('#spoiler').is(":checked"), 
+                      $('#topicTitle').val() 
+      );
       //Router.go("/");
       return false; 
   },
@@ -139,10 +139,9 @@ Template.addTopicModal.rendered = function () {
       Session.set("URLFetched", false);
       Session.set("soundCloudEmbedCode", "");
       Session.set("tagsArray", []);
+      Session.set("fetching", false);
       $('#conversationItemForm').trigger('reset');
       Meteor.typeahead.inject('.typeahead');
 
   });
-   
-
 };

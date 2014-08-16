@@ -16,9 +16,14 @@
 	        </select>
 
 	        {{#if sectionToDisplay "Article/Analysis"}}
+	        	<h5>Enter a Title for this Topic</h5>
+					<input type="text" id="topicTitle" class="form-control" placeholder="Enter Title">
+
 	        	<h5>Input the URL of the Article's Source URL</h5>
 			        <input type="text" id="URLofInterest" class="form-control" placeholder="Input URL">
 			        <button id="checkURL">Fetch Info</button>
+				 {{#if fetching}}<p><img src="/ajax-loader.gif" height="25px"></p>{{/if}}
+
 				{{#if URLFetched}}
 					<p>Title: {{fetchedPageValues.title}}</p>
 					<p><img src="{{fetchedPageValues.image}}" width="225"></p>
@@ -30,7 +35,6 @@
 	        	<h5>Input the Soundcould embed code.</h5>
 			        <input type="text" id="audioClipSource" class="form-control" placeholder="Input URL">	
 				    <button id="fetchAudioFile">Fetch Audio</button>
-
 				    {{{soundCloudEmbed}}}
 				 
 

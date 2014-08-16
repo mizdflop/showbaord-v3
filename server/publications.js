@@ -5,5 +5,5 @@ Meteor.publish("tvseries", function(){
 	return Tvseries.find();
 });
 Meteor.publish("topics", function(){
-	return Notesforshow.find();
+	return Topics.find();
 });
