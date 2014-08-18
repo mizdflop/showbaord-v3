@@ -100,9 +100,10 @@ Template.addTopicModal.events({
         e.stopPropagation();
         if( $('.typeahead').val()==="" ) { return false; }
         var tempArray = Session.get("tagsArray");
+        
         //if what was entered was a character or a scene, parse it
         if( $('.typeahead').val().split(' ')[0] === "character:") {
-              tempArray.push( _.rest( $('.typeahead').val().split(' '),1 ).join(" ") );
+          tempArray.push( _.rest( $('.typeahead').val().split(' '),1 ).join(" ") );
         } else if ( $('.typeahead').val().split(' ')[0] === "scene" ){
           tempArray.push( _.rest( $('.typeahead').val().split(' '),2 ).join(" ") );
         } else {

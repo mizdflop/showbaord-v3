@@ -12,7 +12,7 @@
 		<h1>{{topic.topicTitle}}</h1>
 
 		<h4>Discussion started by {{topic.createdByUsername}} on {{formatDate topic.timestamp}}</h4>
-		<img src="{{topic.linkedArticleInfo.image}}">
+		<img src="{{opic.linkedArticleInfo.image}}">
 		<h5>{{articleAuthor}}</h5>
 		<h5>From {{articleTitle}} on {{site}}</h5>
 		<p>{{topic.conversationStarter}}</p>
@@ -22,6 +22,20 @@
 			{{/each}}
 		</div>		
 
+	</div>
+	<div class="row conversationMeta">
+		<div class="col-xs-8 col-xs-offset-2">
+			Conversation has {{numberComments}} obersations by {{numbercommentors}} memebers
+		</div>
+		<div class="col-xs-8 text-right">		
+			<span class="arrow">&#9664;</span> Sort by <button>this bit</button>
+		</div>
+	</div>
+	<div class="row commentList">
+		<div class="col-xs-6 col-xs-offset-2">
+			<img src="/cap.png" height="35px">
+			<p id="foo" contenteditable>Thisis for me</p>
+		</div>
 	</div>
 
 </div> 
