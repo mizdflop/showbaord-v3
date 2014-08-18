@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:400,800,600);
 /*
 
   Ayu Consulting Frontend Boilerplate
@@ -4957,7 +4958,12 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 =             APP CUSTOM                 =
 ========================================*/
 body {
-  padding-top: 0px; }
+  padding-top: 0px;
+  font-size: 100%;
+  color: #000000; }
+
+a {
+  color: '#3e8acc'; }
 
 .header-space {
   background-color: #0b0706;
@@ -4980,10 +4986,37 @@ body {
     color: #999999; }
 
 .my-fluid-container {
-  padding-left: 15px;
+  padding-left: 22px;
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto; }
+
+.breadcrumbs {
+  padding-left: 22px;
+  padding-top: 8px;
+  font-size: 1em;
+  height: 35px;
+  background-color: #e6e6e6; }
+  .breadcrumbs .episodeTitle {
+    text-transform: uppercase;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    color: #808080;
+    letter-spacing: 1px; }
+  .breadcrumbs .episodeInfo {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400; }
+
+.topicMeta h1 {
+  font-family: 'Open Sans';
+  font-weight: 800;
+  font-size: 2em;
+  color: #000000; }
+.topicMeta h4 {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 1.05em;
+  color: #000000; }
 
 .title-holder {
   position: relative;
@@ -5080,10 +5113,6 @@ body {
 .hideMe {
   display: none; }
 
-.breadcrumbs {
-  height: 30px;
-  background-color: #ebebeb; }
-
 #addTopicModal ul {
   list-style-type: none;
   display: inline-block;
@@ -5115,24 +5144,44 @@ body {
   .mytag .fa {
     margin-left: 5px; }
 
-.arrow {
-  color: #666666;
-  border-style: solid;
-  border-width: 3px;
-  border-color: #999999; }
+.commentList .observation-enter {
+  margin-bottom: 12px; }
+.commentList .observation-block {
+  clear: both;
+  margin-top: 62px; }
+  .commentList .observation-block h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-top: 2px;
+    margin-bottom: 0px; }
+  .commentList .observation-block p {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 1.4em; }
+  .commentList .observation-block hr {
+    border: 0;
+    height: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3); }
+.commentList .text-holder {
+  float: left;
+  width: 80%; }
 
-#foo {
+.observation-holder {
   display: inline;
   background-color: #f2f2f2;
   width: 75%;
-  padding: 5px;
-  margin-left: 35px;
+  padding: 6px;
+  margin-left: 0px;
   position: absolute;
   border-style: solid;
   border-color: #ececec;
   border-width: 2px;
-  border-radius: 5px; }
-  #foo:before {
+  border-radius: 5px;
+  color: black;
+  border-bottom: 1px; }
+  .observation-holder:before {
     position: absolute;
     left: -9px;
     top: 7px;
@@ -5143,11 +5192,26 @@ body {
     border-top: 10px solid transparent;
     border-right: 10px solid #f2f2f2;
     border-bottom: 10px solid transparent; }
-  #foo:active, #foo:focus {
+  .observation-holder:active, .observation-holder:focus {
     outline: none; }
+  .observation-holder .observation-meta {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.4em;
+    color: #999999;
+    margin-bottom: 25px; }
+  .observation-holder .reply-to-conversation {
+    float: left;
+    margin-top: 4px;
+    margin-bottom: 0px; }
+
+.add-observation {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.5em;
+  color: #999999; }
 
 .commentList img {
-  float: left; }
+  float: left;
+  margin-right: 15px; }
 
 .tt-query, .tt-hint {
   width: 396px;

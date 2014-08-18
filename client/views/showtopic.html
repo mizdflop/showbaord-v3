@@ -3,7 +3,7 @@
 
 <div class="row breadcrumbs">
 	<div class="col-xs-12">
-		<span class="episodeTitle">{{series.seriesTitle}}</span> <span class="episodeInfo">{{episode.seasonNumber}}.{{episode.episodeNumber}} - {{episode.title}} {{currentFilter}}</span>
+		<span class="episodeTitle">{{series.seriesTitle}}</span> <span class="episodeInfo"><a href="#">{{episode.seasonNumber}}.{{episode.episodeNumber}} - {{episode.title}}</a> > <a href="#">{{currentFilter}}Top 10 discussions</a> > (1 of 10)</span>
 	</div>
 </div>
 
@@ -11,10 +11,10 @@
 	<div class="col-xs-8 col-xs-offset-2">
 		<h1>{{topic.topicTitle}}</h1>
 
-		<h4>Discussion started by {{topic.createdByUsername}} on {{formatDate topic.timestamp}}</h4>
-		<img src="{{opic.linkedArticleInfo.image}}">
-		<h5>{{articleAuthor}}</h5>
-		<h5>From {{articleTitle}} on {{site}}</h5>
+		<h4>Discussion started by <a href="kkkk">{{topic.createdByUsername}}</a> on {{formatDate topic.timestamp}}</h4>
+		<img src="{{topic.linkedArticleInfo.image}}">
+		<h5>{{articleAuthor}}Andy Greenwald</h5>
+		<h5>From {{articleTitle}}This is a hell of an article on Grantland.com{{site}}</h5>
 		<p>{{topic.conversationStarter}}</p>
 		<div class="tags">
 			{{#each topic.tags}}
@@ -24,17 +24,62 @@
 
 	</div>
 	<div class="row conversationMeta">
-		<div class="col-xs-8 col-xs-offset-2">
-			Conversation has {{numberComments}} obersations by {{numbercommentors}} memebers
+		<div class="col-xs-6 col-xs-offset-3">
+			Conversation has {{numberComments}}15 observations by {{numbercommentors}}6 memebers
 		</div>
 		<div class="col-xs-8 text-right">		
-			<span class="arrow">&#9664;</span> Sort by <button>this bit</button>
+			Sort by <button>this bit</button>
 		</div>
 	</div>
 	<div class="row commentList">
-		<div class="col-xs-6 col-xs-offset-2">
-			<img src="/cap.png" height="35px">
-			<p id="foo" contenteditable>Thisis for me</p>
+		<div class="col-xs-8 col-xs-offset-2">
+			<div class="observation-enter">
+				<img src="/cap.png" height="35px">
+				<p class="observation-holder add-observation" contenteditable>Add an observation...</p>
+			</div>
+			<div class="observation-block">
+				<img src="/cap.png" height="35px">
+				<div class="observation-holder">
+					<div class="primary-observation">
+						<h4>Jason Shankle</h4>
+						<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.
+						</p>
+						<p class="observation-meta">36 min <a class="recommended-link" href="#"> Recommended</a> (14) <a href="#" class="promote">Promote to full discussion</a></p>
+					</div>
+					<hr>
+					<div class="secondary-observations">
+						<img src="/cap.png" height="35px">
+						<div class="text-holder">
+							<h4>First Name, Last Name</h4>
+							<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
+						</div>
+
+					</div>
+					<div class="secondary-observations">
+						<img src="/cap.png" height="35px">
+						<div class="text-holder">
+							<h4>First Name, Last Name</h4>
+							<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
+						</div>
+
+					</div>
+					<div class="secondary-observations">
+						<img src="/cap.png" height="35px">
+						<div class="text-holder">
+							<h4>First Name, Last Name</h4>
+							<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
+						</div>
+
+					</div>
+					<hr>
+					<div class="reply-to-conversation observation-meta">
+						<a href="#" class="reply">Reply to conversation</a>
+					</div>
+
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 

@@ -66,11 +66,18 @@ $b3-enabled: true;
 // @import "app/app";
 
 
-
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Open+Sans:400,800,600);
 $primary_color: #ffffff;
-$primary_size: 114px;
+$primary_font: 'Source Sans Pro', sans-serif;
+$accent_font: 'Open Sans';
+$link_blue: '#3e8acc';
 body {
 	padding-top: 0px;
+	font-size: 100%;
+	color: #000000;
+}
+a{
+	color: $link_blue;
 }
 
 
@@ -103,10 +110,46 @@ body {
 	}
 }
 .my-fluid-container {
-  padding-left: 15px;
+  padding-left: 22px;
   padding-right: 15px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.breadcrumbs{
+	padding-left: 22px;
+	padding-top: 8px;
+	font-size: 1em;
+	height: 35px;
+	background-color: #e6e6e6;
+
+	.episodeTitle{
+		text-transform: uppercase;
+		font-family: $primary_font;
+		font-weight: 700;
+		color: #808080;
+		letter-spacing: 1px;
+
+	}
+	.episodeInfo{
+		font-family: $primary_font;
+		font-weight: 400;
+	}
+}
+
+.topicMeta{
+	h1{
+		font-family: $accent_font;
+		font-weight: 800;
+		font-size: 2em;
+		color: #000000;
+	}
+	h4{
+		font-family: $primary_font;
+		font-weight: 400;
+		font-size:1.05em;
+		color: #000000;
+	}
 }
 
 
@@ -224,11 +267,7 @@ body {
 }
 //showtopic template
 
-.breadcrumbs{
-	height: 30px;
-	background-color: #ebebeb;
 
-}
 .topicMeta{
 
 }
@@ -278,24 +317,53 @@ body {
 		margin-left:5px
 	}
 }
-.arrow{
-	color: #666666;
-	border-style: solid;
-	border-width: 3px;
-	border-color: #999999;
+
+.commentList{
+	.observation-enter{
+		margin-bottom: 12px;
+	}
+	.observation-block{
+		clear: both;
+		margin-top: 62px;
+		h4{
+			font-family: $primary_font;
+			font-weight: 700;
+			font-size: 1.5em;
+			margin-top: 2px;
+			margin-bottom: 0px;
+		}
+		p{
+			font-family: $primary_font;
+			font-weight: 400;
+			font-size: 1.4em;
+		}
+		hr {
+		    border: 0;
+		    height: 0;
+		   // padding:0px;
+		    border-top: 1px solid rgba(0, 0, 0, 0.1);
+		    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+		}
+	}
+	.text-holder{
+		float:left;
+		width: 80%
+	}
 }
 
-#foo{
+.observation-holder{
 	display: inline;
 	background-color: #f2f2f2;
 	width: 75%;
-	padding: 5px;
-	margin-left: 35px;
+	padding: 6px;
+	margin-left: 0px;
 	position: absolute;
 	border-style: solid;
 	border-color: #ececec;
 	border-width: 2px; 
 	border-radius: 5px;
+	color: black;
+	border-bottom: 1px;
 	&:before{
 		position: absolute;
 		left: -9px;
@@ -311,10 +379,27 @@ body {
 	&:active, &:focus {
 		outline:none;
 	}
+	.observation-meta{
+		font-family: $primary_font;
+		font-size: 1.4em;
+		color: #999999;
+		margin-bottom: 25px;
+	}
+	.reply-to-conversation{
+		float:left;
+		margin-top: 4px;
+		margin-bottom: 0px;
+	}
+}
+.add-observation{
+	font-family: $primary_font;
+	font-size: 1.5em;
+	color: #999999;
 }	
 .commentList{
 	img{
 		float: left;
+		margin-right: 15px;
 	}
 }
 
