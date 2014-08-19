@@ -1,0 +1,110 @@
+
+.title-holder{
+	position: relative;
+	min-height: 300px;
+	padding: 0 0 0 0;
+	.desc-text{
+		margin-top: 100px;
+		padding-left:75px;
+		padding-right: 75px;
+	}
+	h3{
+		font-family: helvetica;
+		color: #999999;
+		font-style: bold;
+		font-size: 14px;
+		text-transform: uppercase;
+		letter-spacing: 3px;
+	}
+	h4 {
+		font-size: 36px;	
+		font-family: helvetica;
+		font-style: bold;
+		color: #ffffff;
+
+	}
+	h5 {
+		font-style: italic;
+		margin-bottom: 0px;
+		margin-top: 4px;
+	}
+	.line-above{
+		position: absolute;
+		bottom: 15px;
+		padding-left:75px;
+		padding-right: 75px;
+	}
+	ul {
+		border-top:2px solid #a5a2a0;
+		padding-top: 8px;
+		padding-left: 20px;
+		padding-right: 20px;
+		li {
+			color: #b3b3b3;
+			text-align: center;
+			margin-left: 25px;
+			margin-right: 25px;
+			display: inline;
+			&:hover{
+				color: #ffffff;
+				border-top: 4px solid #cccccc;
+				padding-top: 5px;
+			}
+			.dropdown{
+				display: inline;
+
+			}
+			.dropdown-menu{
+			   height: auto;
+			    max-height: 200px;
+				overflow-x: hidden;
+				padding-left:0px;
+				padding-right:0px;
+				li {
+					margin-top:0px;
+					border-top:0px;
+					text-align: left;
+					a{
+						padding: 3px 10px 11px 20px;
+					}
+				}
+			}
+		}
+	}
+}
+.curated-by{
+	margin-top: 8px;
+	margin-bottom: 12px;
+}
+.topic-listing{
+	margin-left: 45px;
+	img{
+		float: left;
+		margin-right: 12px;
+	}
+	h1{
+		padding-top: 0px;
+		margin-top: 0px;
+		font-size: 18px;
+	}
+	.in-circle{
+		border-radius: 30%;
+		background-color: #ebebeb;
+		width: 30px;
+		height: 30px;
+		text-align: center;
+		padding: 5px;
+		float: left;
+		margin-right: 14px;
+	}
+	.observations{
+		text-size: 8px;
+	}
+	.last-comment{
+		text-size: 5px;
+	}
+
+}
+.btn-rounded {
+	@include button-size(6px, 20px, 11px, 15px, 14px)
+}
