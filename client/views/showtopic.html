@@ -8,124 +8,82 @@
 </div>
 
 <div class="row topicMeta">
-	<div class="col-xs-6 col-xs-offset-2">
+	<div class="col-xs-6 col-xs-offset-3">
 		<h1>{{topic.topicTitle}}</h1>
 
 		<h4>Discussion started by <a href="kkkk">{{topic.createdByUsername}}</a> on {{formatDate topic.timestamp}}</h4>
 		<img src="{{topic.linkedArticleInfo.image}}">
 		<h5 class="author">By: <a href="">{{articleAuthor}}Andy Greenwald</a></h5>
-		<h5>From <a href="#">{{articleTitle}}This is a hell of an article</a> on <a href="#">Grantland.com{{site}}</a></h5>
+		<h5 class="is-from">From <a href="#">{{articleTitle}}This is a hell of an article</a> on <a href="#">Grantland.com{{site}}</a></h5>
 		<p>{{topic.conversationStarter}}Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
 		<div class="tags">
 			{{#each topic.tags}}
 				<span class="tag">{{this}}</span>
 			{{/each}}
+			<i class="fa fa-tags tag"></i>
 		</div>		
 
 	</div>
 </div>
 <div class="row conversationMeta">
-	<div class="col-xs-4 col-xs-offset-2 text-left">
-		Conversation has <span class="makeBold">{{numberComments}}15</span> observations by <span class="makeBold">{{numbercommentors}}6</span> memebers
+	<div class="col-xs-6 col-xs-offset-3 text-left upper-border-me">
+		<hr>
+		<i class="fa fa-comment"></i>Conversation has <span class="makeBold">{{numberComments}}15 observations</span> by <span class="makeBold">{{numbercommentors}}6 memebers</span>.
 	</div>
 	<div class="col-xs-2 text-right">		
 		<!-- sort by button here Sort by <button>this bit</button> -->
 	</div>
 </div>
 <div class="row commentList">
-	<div class="col-xs-5 col-xs-offset-2">
+	<div class="col-xs-5 col-xs-offset-3">
 		<div class="observation-enter">
 			<img src="/cap.png" height="35px">
-			<div class="observation-holder" id="newObservation" contenteditable="true">Add an observation...</div>
+			<div class="observation-holder" id="newObservation" contenteditable="true">{{initialText}}</div>
 		</div>
-		<div class="observation-block">
-			<img src="/cap.png" height="35px">
-			<div class="observation-holder">
-				<div class="primary-observation">
-					<h4>Jason Shankle</h4>
-					<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.
-					</p>
-					<p class="observation-meta">36 min <a class="recommended-link" href="#"> Recommended</a> (14) <a href="#" class="promote">Promote to full discussion</a></p>
-				</div>
-				<div class="secondary-observations">
-					<img src="/cap.png" height="35px">
-					<div class="text-holder">
-						<h4>First Name, Last Name</h4>
-						<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
+		{{#each comments}}
+			<div class="observation-block">
+				<img src="/cap.png" height="35px">
+				<div class="observation-holder">
+					<div class="primary-observation">
+						<h4>{{userId}}</h4>
+						<p>{{commentText}}</p>
+						<p class="observation-meta">{{timeAgo timestamp}} ago
+							{{#if alreadyRecommended recommendedBy}}
+								Recommended ({{recommendedBy.length}}) (including you) 
+							{{else}}
+								<a class="recommended-link" href="#"> Recommended</a> ({{recommendedBy.length}}) <a href="#" class="promote">Promote to full discussion</a>
+							{{/if}}
+						</p>
 					</div>
-				</div>
-				<div class="secondary-observations">
-					<img src="/cap.png" height="35px">
-					<div class="text-holder">
-						<h4>First Name, Last Name</h4>
-						<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
+					<div class="secondary-observations">
+						<img src="/cap.png" height="35px">
+						<div class="text-holder">
+							<h4>First Name, Last Name</h4>
+							<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
+						</div>
 					</div>
+					<div class="secondary-observations">
+						<img src="/cap.png" height="35px">
+						<div class="text-holder">
+							<h4>First Name, Last Name</h4>
+							<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
+						</div>
 
-				</div>
-				<div class="secondary-observations">
-					<img src="/cap.png" height="35px">
-					<div class="text-holder">
-						<h4>First Name, Last Name</h4>
-						<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
+					</div>
+					<div class="secondary-observations">
+						<img src="/cap.png" height="35px">
+						<div class="text-holder">
+							<h4>First Name, Last Name</h4>
+							<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
+						</div>
+					</div>
+					<div class="reply-to-conversation">
+						<p><a href="#">Reply to conversation</a></p>
 					</div>
 				</div>
-				<div class="reply-to-conversation">
-					<p><a href="#">Reply to conversation</a></p>
-				</div>
+
 			</div>
-
-		</div>
-
-
-
-
-
-		<div class="observation-block">
-			<img src="/cap.png" height="35px">
-			<div class="observation-holder">
-				<div class="primary-observation">
-					<h4>Jason Shankle</h4>
-					<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.
-					</p>
-					<p class="observation-meta">36 min <a class="recommended-link" href="#"> Recommended</a> (14) <a href="#" class="promote">Promote to full discussion</a></p>
-				</div>
-				<div class="secondary-observations">
-					<img src="/cap.png" height="35px">
-					<div class="text-holder">
-						<h4>First Name, Last Name</h4>
-						<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
-					</div>
-				</div>
-				<div class="secondary-observations">
-					<img src="/cap.png" height="35px">
-					<div class="text-holder">
-						<h4>First Name, Last Name</h4>
-						<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
-					</div>
-
-				</div>
-				<div class="secondary-observations">
-					<img src="/cap.png" height="35px">
-					<div class="text-holder">
-						<h4>First Name, Last Name</h4>
-						<p>Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor. Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
-					</div>
-				</div>
-				<div class="reply-to-conversation">
-					<p><a href="#">Reply to conversation</a></p>
-				</div>
-			</div>
-
-		</div>
-
-
-
-
-
-
-
-
-
+		{{/each}}
 	</div>
 </div>
 

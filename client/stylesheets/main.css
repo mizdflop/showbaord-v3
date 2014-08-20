@@ -1,3 +1,4 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Open+Sans:400italic,400,800,600);
 /*
 
   Ayu Consulting Frontend Boilerplate
@@ -4955,11 +4956,13 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
 /*========================================
 =             APP CUSTOM                 =
 ========================================*/
+html {
+  font-size: 1em; }
+
 body {
   padding-top: 0px;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
-  font-size: 1em;
   color: #000000; }
 
 a {
@@ -5219,39 +5222,45 @@ a {
 .topicMeta h1 {
   font-family: 'Open Sans';
   font-weight: 800;
-  font-size: 2.5em;
+  font-size: 1.5em;
   margin-bottom: 1px; }
 .topicMeta h4 {
-  font-weight: 400;
-  font-size: 1.05em;
+  font-size: 1.063em;
   margin-top: 2px; }
 .topicMeta h5 {
-  font-style: italic;
+  font-size: 1.063em;
   margin-bottom: 2px;
   margin-top: 0px; }
 .topicMeta .author {
   margin-top: 10px; }
+.topicMeta .is-from {
+  font-style: italic; }
 .topicMeta p {
   margin-top: 6px;
-  font-size: 1.4em; }
+  font-size: 1.25em; }
 .topicMeta .tags {
   text-align: right;
-  margin-right: 12px; }
+  margin-right: 22px; }
 .topicMeta .tag {
   background-color: #d3e8f5;
   text-align: right;
   margin-left: 2px;
   padding: 4px;
-  font-size: 1em;
+  font-size: 0.813em;
   border-radius: 4px; }
+
+.upper-border-me {
+  border-top: 1px solid #d3e8f5; }
 
 .conversationMeta {
   margin-top: 16px;
   margin-bottom: 16px;
   text-align: center;
-  font-size: 1.3em; }
+  font-size: 1.125em; }
   .conversationMeta .makeBold {
     font-weight: bold; }
+  .conversationMeta .fa-comment {
+    margin-right: 5px; }
 
 .commentList .observation-enter {
   margin-bottom: 12px; }
@@ -5268,7 +5277,7 @@ a {
 .commentList p {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
-  font-size: 1.4em; }
+  font-size: 1.25em; }
 .commentList hr {
   border: 0;
   height: 0;
@@ -5280,6 +5289,8 @@ a {
 .commentList .text-holder {
   width: 80%;
   display: inline; }
+.commentList .observation-meta {
+  font-size: 1.063em; }
 
 .observation-holder {
   background-color: #f2f2f2;
@@ -5316,6 +5327,11 @@ a {
     .observation-holder .secondary-observations .text-holder {
       display: inline-block;
       width: 75%; }
+  .observation-holder p {
+    font-size: 1.125em; }
+  .observation-holder h4 {
+    font-size: 1.125em;
+    font-weight: 700; }
 
 .reply-to-conversation {
   max-height: 45px;

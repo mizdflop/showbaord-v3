@@ -65,16 +65,30 @@ $b3-enabled: true;
 // @import "app/app";
 
 
-//@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Open+Sans:400italic,400,800,600);
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic|Open+Sans:400italic,400,800,600);
 $primary_color: #ffffff;
 $primary_font: 'Source Sans Pro', sans-serif;
 $accent_font: 'Open Sans';
 $link_blue: '#3e8acc';
+$9pt: .563em;
+$10pt: .813em;
+$11pt: .875em;
+$12pt: 1em;
+$13pt: 1.063em;
+$14pt: 1.125em;
+$15pt: 1.250em;
+$18pt: 1.188em;
+$24pt: 1.5em;
+
+
+
+html{
+  font-size:1em;
+}
 body {
 	padding-top: 0px;
 	font-family: $primary_font;
 	font-weight: 400;
-	font-size: 1.0em;
 	color: #000000;
 }
 a{

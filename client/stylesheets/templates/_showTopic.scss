@@ -6,50 +6,57 @@
 	h1{
 		font-family: $accent_font;
 		font-weight: 800;
-		font-size: 2.5em;
+		font-size: $24pt;
 		margin-bottom: 1px;
 	}
 	h4{
-		font-weight: 400;
-		font-size:1.05em;
+		font-size:$13pt;
 		margin-top: 2px;
 	}
 	h5{
-		font-style: italic;
+		font-size:$13pt;
 		margin-bottom: 2px;
 		margin-top: 0px;
 	}
 	.author{
 		margin-top: 10px;
 	}
+	.is-from{
+		font-style: italic;
+	}
 	p{
 		margin-top: 6px;
-		font-size: 1.4em;
+		font-size: $15pt;
 	}
 	.tags{
 		text-align: right;
-		margin-right:12px;
+		margin-right:22px;
 	}
 	.tag{
 		background-color: #d3e8f5;
 		text-align: right;
 		margin-left: 2px;
 		padding: 4px;
-		font-size: 1em;
+		font-size: $10pt;
 		border-radius: 4px;
 
 	}
 }
 
-
+.upper-border-me{
+	border-top: 1px solid #d3e8f5;
+}
 
 .conversationMeta{
 	margin-top: 16px;
 	margin-bottom: 16px;
 	text-align: center;
-	font-size: 1.3em;
+	font-size: $14pt;
 	.makeBold{
 		font-weight: bold;
+	}
+	.fa-comment{
+		margin-right: 5px;
 	}
 }
 
@@ -73,7 +80,7 @@
 	p{
 		font-family: $primary_font;
 		font-weight: 400;
-		font-size: 1.4em;
+		font-size: $15pt;
 
 	}
 	hr {
@@ -88,6 +95,9 @@
 	.text-holder{
 		width: 80%;
 		display: inline;
+	}
+	.observation-meta{
+		font-size: $13pt;
 	}
 }
 .observation-holder{
@@ -130,6 +140,13 @@
 			display: inline-block;
 			width: 75%;
 		}
+	}
+	p{
+		font-size: $14pt;
+	}
+	h4{
+		font-size: $14pt;
+		font-weight: 700;
 	}
 }
 .reply-to-conversation{

@@ -7,3 +7,6 @@ Meteor.publish("tvseries", function(){
 Meteor.publish("topics", function(){
 	return Topics.find();
 });
+Meteor.publish("comments", function(){
+	return Comments.find();
+});
