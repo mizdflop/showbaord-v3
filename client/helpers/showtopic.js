@@ -15,11 +15,11 @@ Template.showtopic.helpers({
      	return arr.reverse();
      },
      alreadyRecommended: function(arr){
-     	console.log(arr);
-     	if( arr.indexOf(Meteor.userId()==-1)){
+     	if( arr.indexOf(Meteor.userId()) ==-1){
      		return false;
-     	}
+     	} else {
      		return true;
+     	}
      }
 
 });
@@ -30,7 +30,7 @@ Template.showtopic.events({
 			$('#newObservation').text("").css("color", "#000000");
 		}		
 	},
-	'keyup #newObservation': function(e){
+	'keydown #newObservation': function(e){
 		//console.log( $('#newObservation').text() );
 		if(e.keyCode==13){
 			insertComment( Topics.findOne()._id, Meteor.userId(), $('#newObservation').text(), 0 );
