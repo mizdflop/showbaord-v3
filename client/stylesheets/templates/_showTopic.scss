@@ -1,5 +1,6 @@
 .observation-block{
 	margin-bottom: 12px;
+	margin-top:20px;
 }
 .topicMeta{
 	h1{
@@ -40,6 +41,8 @@
 	}
 }
 
+
+
 .conversationMeta{
 	margin-top: 16px;
 	margin-bottom: 16px;
@@ -53,6 +56,12 @@
 .commentList{
 	.observation-enter{
 		margin-bottom: 12px;
+		#newObservation{
+			padding: 5px;
+			font-size: 1.3em;
+			color:#999999;
+
+		}
 	}
 	h4{
 		font-family: $primary_font;
@@ -60,13 +69,12 @@
 		font-size: 1.5em;
 		margin-top: 2px;
 		margin-bottom: 0px;
-		padding-left: 6px;
 	}
 	p{
 		font-family: $primary_font;
 		font-weight: 400;
 		font-size: 1.4em;
-		padding-left: 16px;
+
 	}
 	hr {
 	    border: 0;
@@ -115,26 +123,23 @@
 		border-bottom-style: solid;
 		border-bottom-color: #ececec;
 		border-bottowm-width:2px;
-		h4{
-			padding-top: 8px;
-		}
 	}
 	.secondary-observations{
+		margin-top:5px;
 		.text-holder{
 			display: inline-block;
 			width: 75%;
 		}
 	}
-	p{
-		padding: 6px;
-	}
-
 }
 .reply-to-conversation{
 	max-height: 45px;
 	background-color: #e9f0f4;
 	height:	65px;
 	border-radius: 4px;
+	p{
+		padding:12px;
+	}
 }
 
 .add-observation{
@@ -149,5 +154,6 @@
 		float: left;
 		margin-right: 15px;
 		margin-left:6px;
+		margin-top: 4px;
 	}
 }

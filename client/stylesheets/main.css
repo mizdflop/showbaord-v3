@@ -5213,7 +5213,8 @@ a {
     margin-left: 5px; }
 
 .observation-block {
-  margin-bottom: 12px; }
+  margin-bottom: 12px;
+  margin-top: 20px; }
 
 .topicMeta h1 {
   font-family: 'Open Sans';
@@ -5254,18 +5255,20 @@ a {
 
 .commentList .observation-enter {
   margin-bottom: 12px; }
+  .commentList .observation-enter #newObservation {
+    padding: 5px;
+    font-size: 1.3em;
+    color: #999999; }
 .commentList h4 {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 700;
   font-size: 1.5em;
   margin-top: 2px;
-  margin-bottom: 0px;
-  padding-left: 6px; }
+  margin-bottom: 0px; }
 .commentList p {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
-  font-size: 1.4em;
-  padding-left: 16px; }
+  font-size: 1.4em; }
 .commentList hr {
   border: 0;
   height: 0;
@@ -5308,19 +5311,19 @@ a {
     border-bottom-style: solid;
     border-bottom-color: #ececec;
     border-bottowm-width: 2px; }
-    .observation-holder .primary-observation h4 {
-      padding-top: 8px; }
-  .observation-holder .secondary-observations .text-holder {
-    display: inline-block;
-    width: 75%; }
-  .observation-holder p {
-    padding: 6px; }
+  .observation-holder .secondary-observations {
+    margin-top: 5px; }
+    .observation-holder .secondary-observations .text-holder {
+      display: inline-block;
+      width: 75%; }
 
 .reply-to-conversation {
   max-height: 45px;
   background-color: #e9f0f4;
   height: 65px;
   border-radius: 4px; }
+  .reply-to-conversation p {
+    padding: 12px; }
 
 .add-observation {
   font-family: 'Source Sans Pro', sans-serif;
@@ -5332,4 +5335,5 @@ a {
 .commentList img {
   float: left;
   margin-right: 15px;
-  margin-left: 6px; }
+  margin-left: 6px;
+  margin-top: 4px; }
