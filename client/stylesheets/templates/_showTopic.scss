@@ -3,6 +3,7 @@
 	margin-top:20px;
 }
 .topicMeta{
+	position: relative;
 	h1{
 		font-family: $accent_font;
 		font-weight: 800;
@@ -148,15 +149,32 @@
 		font-size: $14pt;
 		font-weight: 700;
 	}
+	.fa-link{
+		position: absolute;
+		right: 12px;
+		top: 12px;
+		font-size: $18pt;
+		color: #999999;
+	}
 }
 .reply-to-conversation{
-	max-height: 45px;
-	background-color: #e9f0f4;
-	height:	65px;
+	padding:12px;
+	background-color: #e9f0f4;	
 	border-radius: 4px;
-	p{
-		padding:12px;
+	span{
+		float:left;
+		margin-left: 10px;
+		margin-right: 10px;
 	}
+	.interiorReply{
+		font-size: $13pt;
+		display: inline-block;
+		background-color: #ffffff;
+		height: 45px;
+		width:80%;
+		overflow: hidden;
+	}
+
 }
 
 .add-observation{
@@ -173,4 +191,32 @@
 		margin-left:6px;
 		margin-top: 4px;
 	}
+}
+.btn-follow {
+	@include button-size(6px, 20px, 11px, 15px, 14px);
+	font-size: $13pt;
+	color: #009245;
+	background-color: #ffffff;
+	border-color: #009245;
+	box-shadow: none;
+	.fa{
+		padding-left:5px;
+		padding-right: 7px
+	}
+}
+.fa-chevron-left {
+	font-size: 3em;
+	color:#999999;
+	position: absolute;
+	top:175px;
+	left: 55px;
+}
+.fa-chevron-right {
+	position: absolute;
+	font-size: 3em;
+	color:#999999;
+	position: absolute;
+	top:175px;
+	right: 55px;
+
 }

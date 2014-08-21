@@ -20,6 +20,9 @@ Template.showtopic.helpers({
      	} else {
      		return true;
      	}
+     },
+     nestedComment: function(idstr){
+     	return Comments.find({parentId: idstr}, {sort: {timestamp: 1}});
      }
 
 });
@@ -44,8 +47,15 @@ Template.showtopic.events({
 		console.log(this._id);
 		commentRecommended(this._id, Meteor.userId());
 	},
-	'click .reply-to-conversation': function(){
-		Session.set("show")
+	'keydown .interiorReply': function(e){
+		if(e.keyCode==13){
+			console.log(e.currentTarget.innerText);
+			insertComment( Topics.findOne()._id, Meteor.userId(), e.currentTarget.innerText, this._id );
+			$(e.currentTarget).text('');
+		}
+	},
+	'click .fa-link': function(e){
+		Router.go("/" + this._id);
 	}
 });
 
@@ -55,7 +65,7 @@ function insertComment ( topicId, userId, commentText, parent) {
 		topicId: topicId,
 		userId: userId,
 		commentText:commentText,
-		parent: parent,
+		parentId: parent,
 		timestamp: Date(),
 		recommendedBy: []
 	}

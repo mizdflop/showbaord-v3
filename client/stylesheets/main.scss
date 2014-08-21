@@ -79,6 +79,7 @@ $14pt: 1.125em;
 $15pt: 1.250em;
 $18pt: 1.188em;
 $24pt: 1.5em;
+$36pt: 1.85em;
 
 
 
@@ -102,3 +103,17 @@ a{
 @import "templates/typeahead";
 @import "templates/addTopicModal";
 @import "templates/showTopic";
+
+/* centered columns styles */
+.row-centered {
+    text-align:center;
+}
+.col-centered {
+    display:inline-block;
+    float:none;
+    /* reset the text-align */
+    text-align:left;
+    /* inline-block space fix */
+    margin-right:-4px;
+}
+

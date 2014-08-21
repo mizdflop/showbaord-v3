@@ -9,22 +9,25 @@
 		padding-right: 75px;
 	}
 	h3{
-		font-family: helvetica;
+		font-family: $accent_font;
 		color: #999999;
-		font-style: bold;
+		font-weight: 700;
 		font-size: 14px;
 		text-transform: uppercase;
 		letter-spacing: 3px;
 	}
 	h4 {
-		font-size: 36px;	
-		font-family: helvetica;
-		font-style: bold;
+		font-size: $36pt;	
+		font-family: $accent_font;
+		font-weight: 700;
 		color: #ffffff;
 
 	}
 	h5 {
-		font-style: italic;
+		font-family: $primary_font;
+		color: #f4efb5;
+		font-style: bold;
+		font-size: $18pt;
 		margin-bottom: 0px;
 		margin-top: 4px;
 	}
@@ -33,13 +36,18 @@
 		bottom: 15px;
 		padding-left:75px;
 		padding-right: 75px;
+		.caret{
+			padding-bottom: 2px;
+		}
 	}
 	ul {
-		border-top:2px solid #a5a2a0;
+		border-top:3px solid #a5a2a0;
 		padding-top: 8px;
 		padding-left: 20px;
 		padding-right: 20px;
-		li {
+		li {			
+			font-family: $primary_font;
+			font-size: $14pt;
 			color: #b3b3b3;
 			text-align: center;
 			margin-left: 25px;
@@ -65,7 +73,7 @@
 					border-top:0px;
 					text-align: left;
 					a{
-						padding: 3px 10px 11px 20px;
+						padding: 3px 10px 20px 20px;
 					}
 				}
 			}
@@ -75,17 +83,38 @@
 .curated-by{
 	margin-top: 8px;
 	margin-bottom: 12px;
+	font-size: $12pt;
+	p{
+		text-align: center;
+		color: #4d4d4d;
+	}
 }
 .topic-listing{
 	margin-left: 45px;
+	border-bottom: 1px soiid #666666;
 	img{
 		float: left;
-		margin-right: 12px;
+		margin-right: 36px;
+	}
+	.info-block{
+		margin-left: 19px;
 	}
 	h1{
-		padding-top: 0px;
+		font-family: $accent_font;
+		font-weight: 700;
+		font-size: $18pt;
+		margin-left: 0px;
 		margin-top: 0px;
-		font-size: 18px;
+		margin-bottom:0px;
+	}
+	.article-by{
+		font-family: $primary_font;
+		font-size: $10pt;
+		font-style: bold;
+	}
+	.pulled-quote{
+		font-size: $13pt;
+		font-family: $primary_font;
 	}
 	.in-circle{
 		border-radius: 30%;
@@ -98,10 +127,23 @@
 		margin-right: 14px;
 	}
 	.observations{
-		text-size: 8px;
+		font-size: $12pt;
+		padding-bottom: 0px;
+		margin-bottom: 0px;
+		.accent-me{
+			color: #3e8acc;
+			font-weight: bold;		
+		}
+
 	}
 	.last-comment{
-		text-size: 5px;
+		font-family: $primary_font;
+		font-size: $9pt;
+		padding-top: 0px;
+
+	}
+	.listing-border{
+		border-bottom: 1px solid #eee;
 	}
 
 }
