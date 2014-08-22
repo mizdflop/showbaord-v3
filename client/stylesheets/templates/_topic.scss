@@ -88,6 +88,7 @@
 	}
 }
 .curated-by{
+	position: relative;
 	margin-top: 8px;
 	margin-bottom: 12px;
 	font-size: $12pt;
@@ -97,19 +98,21 @@
 }
 .topic-listing{
 	margin-left: 45px;
+	margin-top:25px;
 	border-bottom: 1px soiid #666666;
 	img{
 		float: left;
 		margin-right: 36px;
 	}
 	.info-block{
+		display: table;
 		margin-left: 19px;
 	}
 	h1{
 		font-family: $accent_font;
 		font-weight: 700;
 		font-size: $18pt;
-		margin-left: 0px;
+		margin-left: -20px;
 		margin-top: 0px;
 		margin-bottom:0px;
 	}
@@ -154,7 +157,10 @@
 	font-weight: bold;		
 }
 
-
+#addTopic{
+	position: absolute;
+	right: 75px;
+}
 .btn-rounded {
 	@include button-size(6px, 20px, 11px, 15px, 14px)
 }

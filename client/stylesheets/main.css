@@ -4976,16 +4976,18 @@ a {
   padding-right: 12px;
   margin-bottom: 0px; }
   .header-space .navbar-brand a {
-    font-family: 'Open Sans';
-    font-size: 1.4em;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.37em;
     color: #fff; }
   .header-space .navbar-brand .tagLine {
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 1em;
     font-style: italic;
-    color: #999999; }
+    color: #999999;
+    margin-left: 10px; }
   .header-space .navbar-right li a {
-    font-size: 1.4em;
-    color: #fff; }
+    font-size: 1em;
+    color: #999; }
 
 .my-fluid-container {
   padding-left: 22px;
@@ -5070,7 +5072,7 @@ a {
     font-family: 'Source Sans Pro', sans-serif;
     color: #f4efb5;
     font-style: bold;
-    font-size: 1.188em;
+    font-size: 1.25em;
     margin-bottom: 0px;
     margin-top: 4px; }
   .title-holder .line-above {
@@ -5114,6 +5116,7 @@ a {
             padding: 3px 10px 20px 20px; }
 
 .curated-by {
+  position: relative;
   margin-top: 8px;
   margin-bottom: 12px;
   font-size: 1em; }
@@ -5122,17 +5125,19 @@ a {
 
 .topic-listing {
   margin-left: 45px;
+  margin-top: 25px;
   border-bottom: 1px soiid #666666; }
   .topic-listing img {
     float: left;
     margin-right: 36px; }
   .topic-listing .info-block {
+    display: table;
     margin-left: 19px; }
   .topic-listing h1 {
     font-family: 'Open Sans';
     font-weight: 700;
-    font-size: 1.188em;
-    margin-left: 0px;
+    font-size: 1.25em;
+    margin-left: -20px;
     margin-top: 0px;
     margin-bottom: 0px; }
   .topic-listing .article-by {
@@ -5165,6 +5170,10 @@ a {
 .accent-me {
   color: #3e8acc;
   font-weight: bold; }
+
+#addTopic {
+  position: absolute;
+  right: 75px; }
 
 .btn-rounded {
   padding: 6px 20px;
@@ -5279,7 +5288,7 @@ a {
     font-style: italic; }
   .topicMeta p {
     margin-top: 6px;
-    font-size: 1.25em; }
+    font-size: 1.188em; }
   .topicMeta .tags {
     text-align: right;
     margin-right: 22px; }
@@ -5290,6 +5299,13 @@ a {
     padding: 4px;
     font-size: 0.813em;
     border-radius: 4px; }
+  .topicMeta .tag-box {
+    background-color: #ccc;
+    text-align: right;
+    margin-left: 2px;
+    padding: 7px;
+    font-size: 0.875em;
+    border-radius: 0px; }
 
 .upper-border-me {
   border-top: 1px solid #d3e8f5; }
@@ -5319,7 +5335,7 @@ a {
 .commentList p {
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
-  font-size: 1.25em; }
+  font-size: 1.188em; }
 .commentList hr {
   border: 0;
   height: 0;
@@ -5378,7 +5394,7 @@ a {
     position: absolute;
     right: 12px;
     top: 12px;
-    font-size: 1.188em;
+    font-size: 1.25em;
     color: #999999; }
 
 .reply-to-conversation {
@@ -5429,7 +5445,7 @@ a {
   color: #999999;
   position: absolute;
   top: 175px;
-  left: 55px; }
+  left: 25px; }
 
 .fa-chevron-right {
   position: absolute;
@@ -5437,7 +5453,7 @@ a {
   color: #999999;
   position: absolute;
   top: 175px;
-  right: 55px; }
+  right: 25px; }
 
 /* centered columns styles */
 .row-centered {
