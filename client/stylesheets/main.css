@@ -4966,7 +4966,7 @@ body {
   color: #000000; }
 
 a {
-  color: '#3e8acc'; }
+  color: #3e8acc; }
 
 .header-space {
   background-color: #0b0706;
@@ -5041,9 +5041,15 @@ a {
     margin-left: 5px; }
 
 .title-holder {
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: cover;
+  /*background-size: 100%;*/
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   position: relative;
-  min-height: 300px;
-  padding: 0 0 0 0; }
+  min-height: 300px; }
   .title-holder .desc-text {
     margin-top: 100px;
     padding-left: 75px;
@@ -5080,6 +5086,7 @@ a {
     padding-left: 20px;
     padding-right: 20px; }
     .title-holder ul li {
+      cursor: pointer;
       font-family: 'Source Sans Pro', sans-serif;
       font-size: 1.125em;
       color: #b3b3b3;
@@ -5111,8 +5118,7 @@ a {
   margin-bottom: 12px;
   font-size: 1em; }
   .curated-by p {
-    text-align: center;
-    color: #4d4d4d; }
+    text-align: center; }
 
 .topic-listing {
   margin-left: 45px;
@@ -5149,15 +5155,16 @@ a {
     font-size: 1em;
     padding-bottom: 0px;
     margin-bottom: 0px; }
-    .topic-listing .observations .accent-me {
-      color: #3e8acc;
-      font-weight: bold; }
   .topic-listing .last-comment {
     font-family: 'Source Sans Pro', sans-serif;
-    font-size: 0.563em;
+    font-size: 0.813em;
     padding-top: 0px; }
   .topic-listing .listing-border {
     border-bottom: 1px solid #eee; }
+
+.accent-me {
+  color: #3e8acc;
+  font-weight: bold; }
 
 .btn-rounded {
   padding: 6px 20px;

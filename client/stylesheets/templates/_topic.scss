@@ -1,8 +1,14 @@
 
 .title-holder{
+	background-repeat:no-repeat;
+    background-position: top center;
+    background-size: cover;
+  /*background-size: 100%;*/
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
 	position: relative;
 	min-height: 300px;
-	padding: 0 0 0 0;
 	.desc-text{
 		margin-top: 100px;
 		padding-left:75px;
@@ -46,6 +52,7 @@
 		padding-left: 20px;
 		padding-right: 20px;
 		li {			
+			cursor: pointer;
 			font-family: $primary_font;
 			font-size: $14pt;
 			color: #b3b3b3;
@@ -86,7 +93,6 @@
 	font-size: $12pt;
 	p{
 		text-align: center;
-		color: #4d4d4d;
 	}
 }
 .topic-listing{
@@ -130,15 +136,11 @@
 		font-size: $12pt;
 		padding-bottom: 0px;
 		margin-bottom: 0px;
-		.accent-me{
-			color: #3e8acc;
-			font-weight: bold;		
-		}
 
 	}
 	.last-comment{
 		font-family: $primary_font;
-		font-size: $9pt;
+		font-size: $10pt;
 		padding-top: 0px;
 
 	}
@@ -147,6 +149,12 @@
 	}
 
 }
+.accent-me{
+	color: #3e8acc;
+	font-weight: bold;		
+}
+
+
 .btn-rounded {
 	@include button-size(6px, 20px, 11px, 15px, 14px)
 }
