@@ -46,6 +46,9 @@ Template.topics.helpers({
     } else if (this.noteType =="Article/Analysis"){
       return this.linkedArticleInfo.image;
     }    
+  },
+  timeAgo: function(){
+    return moment(this.lastCommentTimestamp).fromNow();
   }
 });
 

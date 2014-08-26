@@ -2,7 +2,9 @@
 <div class="container-fluid">
 <div class="row breadcrumbs">
 	<div class="col-xs-12">
-		<span class="episodeTitle">{{series.seriesTitle}}</span> <span class="episodeInfo"><a href="#">{{episode.seasonNumber}}.{{episode.episodeNumber}} - {{episode.title}}</a> > <a href="#">{{currentFilter}}Top 10 discussions</a> > (1 of 10)</span>
+		<span class="episodeTitle">{{series.seriesTitle}}</span> <span class="episodeInfo">
+		<a id="linkToTopics" href="#">{{episode.seasonNumber}}.{{episode.episodeNumber}} - {{episode.title}}</a> >
+		<a href="#">{{currentFilter}}Top 10 discussions</a> > (1 of 10)</span>
 	</div>
 </div>
 
@@ -17,7 +19,7 @@
 		<img class="img-responsive" src="{{topic.linkedArticleInfo.image}}">
 		<h5 class="author">By: <a href="">{{articleAuthor}}Andy Greenwald</a></h5>
 		<h5 class="is-from">From <a href="#">{{articleTitle}}This is a hell of an article</a> on <a href="#">Grantland.com{{site}}</a></h5>
-		<p>{{topic.conversationStarter}}Lorem ipsa loquitor. Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.Lorem ipsa loquitor.</p>
+		<p>{{topic.conversationStarter}}</p>
 		<div class="tags">
 			{{#each topic.tags}}
 				<span class="tag">{{this}}</span>
@@ -29,7 +31,7 @@
 <div class="row conversationMeta">
 	<div class="col-xs-6 col-xs-offset-3 text-left upper-border-me">
 		<hr>
-		<i class="fa fa-comment"></i>Conversation has <span class="makeBold">{{numberComments}}15 observations</span> by <span class="makeBold">{{numbercommentors}}6 memebers</span>.
+		<i class="fa fa-comment"></i>Conversation has <span class="makeBold">{{topic.numberComments }} observations</span> by <span class="makeBold">{{topic.numberCommentors}} memebers</span>.
 	</div>
 	<div class="col-xs-2 text-right">		
 		<!-- sort by button here Sort by <button>this bit</button> -->

@@ -23,8 +23,7 @@ Template.showtopic.helpers({
      },
      nestedComment: function(idstr){
      	return Comments.find({parentId: idstr}, {sort: {timestamp: 1}});
-     }
-
+     },
 });
 
 Template.showtopic.events({
@@ -57,6 +56,16 @@ Template.showtopic.events({
 	},
 	'click .fa-link': function(e){
 		Router.go("/" + this._id);
+	},
+	'click #linkToTopics': function(){
+		Router.go(
+			"topics",
+			{
+				episode: Router.current().params['episode'],
+				season: Router.current().params['season'],
+				series: Router.current().params['series']
+			}
+		);
 	}
 });
 
@@ -64,10 +73,9 @@ Template.showtopic.events({
 function insertComment(topicId, userId, commentText, parent){
 	var updateModifer = {};
 	if( Comments.find({userId: Meteor.userId() }).count()== 0){
-		console.log('ever here');
-		updateModifer =  {$inc: {numberCommentors: 1, numberComments: 1}};
+		updateModifer =  {$inc: {numberCommentors: 1, numberComments: 1}, $set: {lastCommentTimestamp: Date()} };
 	} else {
-		updateModifer = {$inc: {numberComments: 1}};
+		updateModifer = {$inc: {numberComments: 1}, $set: {lastCommentTimestamp: Date() }};
 	}
 	Topics.update({_id: topicId}, updateModifer, function(error, numberModified){
 		if(numberModified){
