@@ -1,10 +1,13 @@
-function insertTopic(topicType, URL, conversationStarter, spoiler, topicTitle){
+function insertTopic(topicType, URL, conversationStarter, spoiler, topicTitle, articleTitle, articleImage, articleDescription, 
+                      articleAuthor, articleSite, audioClipSource, audioTitle, audioAuthor, audioSite, originalThoughtImageSource){
+console.log(audioClipSource);
     var insertObject = {
         episodeId: Episodes.findOne()._id,
         createdById: Meteor.userId(),
         createdByUsername: Meteor.user().username,
         timestamp: Date.now(),
         noteType: topicType,
+        topicTitle: topicTitle,
         conversationStarter: conversationStarter,
         spoilerWarning: spoiler,
         tags: Session.get("tagsArray")
@@ -12,13 +15,23 @@ function insertTopic(topicType, URL, conversationStarter, spoiler, topicTitle){
     if(topicType ==="Article/Analysis"){
         insertObject.linkedArticleInfo = {
           URL: URL,
-          title: Session.get("URLValues").title,
-          image: Session.get("URLValues").image,
-          description: Session.get("URLValues").description
+          title: articleTitle,
+          image: articleImage,
+          description: articleDescription,
+          author: articleAuthor,
+          site: articleSite
         }
     } else if(topicType === "Audio/Podcast") {
-        insertObject.soundCloudEmbedCode = Session.get("soundCloudEmbedCode");
-    } 
+        insertObject.linkedAudioInfo = {
+          soundCloudEmbedCode: audioClipSource,
+          title: audioTitle,
+          author: audioAuthor,
+          site: audioSite
+        }
+    } else if (topicType == "Original Thought") {
+      insertObject.originalThoughtImageSource = originalThoughtImageSource
+
+    }
     //if it's an original thought, we don't need anyting more
     Topics.insert( insertObject );
 }
@@ -120,9 +133,14 @@ Template.addTopicModal.events({
       event.preventDefault();
       event.stopPropagation();
       //rewrite with callback
+      //(topicType, URL, conversationStarter, spoiler, topicTitle, articleTitle, artlceImage, articleDescription, 
+      //                articleAuthor, articleSite, audioTitle, audioAuthor, audioSite)
       insertTopic( $('#createTopicDropdown').val(), $('#URLofInterest').val(), 
                       $('#conversationStarter').val(), $('#spoiler').is(":checked"), 
-                      $('#topicTitle').val() 
+                      $('#topicTitle').val(), $('#articleTitle').val(), $('#articleImage').val(), 
+                      $('#articleDescription').val(), $('#articleAuthor').val(), $('#articleSite').val(),
+                      $('#audioClipSource').val(), $('#audioTitle').val(), $('#audioAuthor').val(), $('#audioSite').val(),
+                      $('#originalThoughtImageSource').val()
       );
       //Router.go("/");
       return false; 

@@ -15,7 +15,8 @@ Meteor.methods({
 			return {
 				"title": $("meta[property='og:title']").attr("content"),
 				"image": $("meta[property='og:image']").attr("content"),
-				"description": $("meta[property='og:description']").attr("content")
+				"description": $("meta[property='og:description']").attr("content"),
+				"site_name": $("meta[property='og:site_name']").attr("content")
 			};
 		}
 	},	

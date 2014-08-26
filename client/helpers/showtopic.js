@@ -37,6 +37,7 @@ Template.showtopic.events({
 		//console.log( $('#newObservation').text() );
 		if(e.keyCode==13){
 			insertComment( Topics.findOne()._id, Meteor.userId(), $('#newObservation').text(), 0 );
+
 			$('#newObservation').text("");
 		}
 		if( $('#newObservation').text() === initialEnterText){
@@ -59,7 +60,27 @@ Template.showtopic.events({
 	}
 });
 
-function insertComment ( topicId, userId, commentText, parent) {
+//combine into a callback function on inssert. this isn't going to work like this. 
+function insertComment(topicId, userId, commentText, parent){
+	var updateModifer = {};
+	if( Comments.find({userId: Meteor.userId() }).count()== 0){
+		console.log('ever here');
+		updateModifer =  {$inc: {numberCommentors: 1, numberComments: 1}};
+	} else {
+		updateModifer = {$inc: {numberComments: 1}};
+	}
+	Topics.update({_id: topicId}, updateModifer, function(error, numberModified){
+		if(numberModified){
+			insertNew( topicId, Meteor.userId(), commentText, parent );
+		}
+	});
+
+	
+
+}
+
+
+function insertNew ( topicId, userId, commentText, parent) {
 	Comments.insert(
 	{ 
 		topicId: topicId,

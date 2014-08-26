@@ -14,51 +14,59 @@
 	        	<option>Audio/Podcast</option>
 	        	<option>Original Thought</option>
 	        </select>
+			<input type="text" id="topicTitle" class="form-control" placeholder="Enter Title">
 
 	        {{#if sectionToDisplay "Article/Analysis"}}
 	        	<h5>Enter a Title for this Topic</h5>
-				<input type="text" id="topicTitle" class="form-control" placeholder="Enter Title">
 
 	        	<h5>Input the URL of the Article's Source URL</h5>
 			    <input type="text" id="URLofInterest" class="form-control" placeholder="Input URL">
 			    <button id="checkURL">Fetch Info</button>
-				{{#if fetching}}<p><img src="/ajax-loader.gif" height="25px"></p>{{/if}}
-				{{#if URLFetched}}
-					<p>Title: {{fetchedPageValues.title}}</p>
-					<p><img src="{{fetchedPageValues.image}}" width="225"></p>
-					<p>{{fetchedPageValues.description}}</p>		
+				{{#if fetching}}
+					<p><img src="/ajax-loader.gif" height="25px"></p>
+				{{/if}}
+				<p>Title:</p> <input type="text" id="articleTitle" value="{{fetchedPageValues.title}}">
+				<p>Author:</p> <input type="text" id="articleAuthor" value="">
+				<p>Site:</p> <input type="text" id="articleSite" value="{{fetchedPageValues.site_name}}">
+				<p>Img Src:</p><input type="text" id="articleImage" value="{{fetchedPageValues.image}}">
+				<p>Image Preview:</p>
+				<p><img src="{{fetchedPageValues.image}}" width="225"></p>
+				<p>Article Description</p>
+				<textarea rows="3" id="articleDescription">{{fetchedPageValues.description}}</textarea>	
 
-				{{/if}}		        
 			{{/if}}
+
 			{{#if sectionToDisplay "Audio/Podcast"}}
 	        	<h5>Input the Soundcould embed code.</h5>
-			        <input type="text" id="audioClipSource" class="form-control" placeholder="Input URL">	
-				    <button id="fetchAudioFile">Fetch Audio</button>
-				    {{{soundCloudEmbed}}}
+		        <input type="text" id="audioClipSource" class="form-control" placeholder="Input URL">	
+			    <button id="fetchAudioFile">Fetch Audio</button>
+			    {{{soundCloudEmbed}}}
+				<p>Title:</p> <input type="text" id="audioTitle" value="">
+				<p>Author:</p> <input type="text" id="audioAuthor" value="">
+				<p>Site:</p> <input type="text" id="audioSite" value="">
+
 	        {{/if}}
 
 	        {{#if sectionToDisplay "Original Thought"}}
-	        	<h4>Original Thought</h4>
-	        	<h5>Enter a Short Title for Your Thought</h5>
-			        <input type="text" id="audioClipSource" class="form-control" placeholder="Post Title">	        	
+				<p>Img Src:</p><input type="text" id="originalThoughtImageSource" value="">
 			{{/if}}			
-			<div class="{{#unless showConversationStarter}}hideMe{{/unless}}">
-		        <h5>Enter an insight to get this conversation rolling!</h5>
-		        <textarea id="conversationStarter" Uclass="form-control" rows="3"></textarea>
-		        <input class="form-control typeahead" id="foobar" name="showTags" type="text"
-			       placeholder="Start typing"
-			       autocomplete="off" spellcheck="off"
-			       data-source="allTags" />
 
-			    {{#each tags}}
-			    	<span class="mytag">{{tag}}<i class="fa fa-times"></i></span>&nbsp;
-			    {{/each}}
+	        <h5>Enter an insight to get this conversation rolling!</h5>
+	        <textarea id="conversationStarter" Uclass="form-control" rows="3"></textarea>
+	        <h5>Tag it!</h5>
+	        <input class="form-control typeahead" id="foobar" name="showTags" type="text"
+		       placeholder="Start typing"
+		       autocomplete="off" spellcheck="off"
+		       data-source="allTags" />
+		     <p>
+		    {{#each tags}}
+		    	<span class="mytag">{{tag}}<i class="fa fa-times"></i></span>&nbsp;
+		    {{/each}}
+			</p>
+		    <p><input id="spoiler" type="checkbox"> &nbsp;Include Spoiler warning?</p> 
 
-			    <p><input id="spoiler" type="checkbox"> &nbsp;Include Spoiler warning?</p> 
+	        <p><button type="submit" class="btn btn-primary">Add Conversation</button></p>
 
-		        <p><button type="submit" class="btn btn-primary">Add Conversation</button></p>
-
-		    </div>
 	     </form>
       </div>
       <div class="modal-footer">
